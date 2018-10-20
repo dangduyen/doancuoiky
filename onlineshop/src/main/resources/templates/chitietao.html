@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chi tiết sản phẩm</title>
+
+    <script src="assets/jquery/jquery.3.2.1.js "></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style_product.css">
+    <script src="assets/bootstrap/js/parallax.min.js"></script>
+</head>
+<body>
+<div class="body parallax-window" data-parallax="scroll" data-image-src="image/hinh.png">
+    <!--thanh đăng nhập-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-shop-info">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>+039 438 1694</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span> thiduyen.dang.98@gmail.com</span></li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-nav">
+                <ul class="list-unstyled list-inline pull-right">
+                    <li><a href="/login" style="color:orangered">Đăng nhập</a></li>
+                    <li><a href="/register"style="color:orangered">Đăng kí</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--thanh logo-->
+    <div id="header">
+        <div class="row" style="margin-right: 0px !important;">
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
+                <div class="text" style="text-align: center">
+                    <input type="search" placeholder="Nhập sản phẩm bạn muốn tìm" style="width: 250px;height: 30px; border: 2px solid #A9A9A9;border-radius: 12px;">
+                    <button class="btn btn-danger" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <div class="logo" style="text-align: center">
+                    <img src="image/logoabc.png" width="120" height="100" >
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12" style="text-align: center;">
+                <button class="btn btn-success btn-giohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+    <!--thanh trang chủ-->
+    <nav class="navbar navbar-inverse" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Beauty 2D</a>
+                    </div>
+                </div>
+                <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12" >
+                    <ul class="nav navbar-nav" style="font-size: 18px; ">
+                        <li class="active"><a href="/">Trang chủ</a></li>
+                        <li><a href="/product">Sản phẩm</a></li>
+                        <li><a href="/care">Chăm sóc khách hàng</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="chuyenmuc">
+                <div style="text-align: center">
+                    <span style="color: rgb(139, 139, 247); font-size: 25px;">XEM THEO</span>
+                </div>
+                <hr>
+                <div>
+                    <ul style="text-align: center" >
+                        <li class="one">
+                            <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                <a href="#">Màu sắc (357)
+                                </a>
+                            </button>
+                        </li>
+
+                        <li class="two">
+                            <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                <a href="#">Kiểu dáng (297)
+                                </a>
+                            </button>
+                        </li>
+                        <li class="three">
+                            <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                <a href="#">Văn phòng - Hội họp (145)
+                                </a>
+                            </button>
+                        </li>
+                        <li class="four">
+                            <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                <a href="#">Thời trang - Dạo phố (256)
+                                </a>
+                            </button>
+                        </li>
+                        <li class="five">
+                            <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                <a href="#">Nữ tính - nhẹ nhàng (458)
+                                </a>
+                            </button>
+                        </li>
+                        <li class="six">
+                            <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                <a href="#">Cá tính -  Mạnh mẽ (289)
+                                </a>
+                            </button>
+                        </li>
+                        <li class="seven">
+                            <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                <a href="#">Thương hiệu (456)
+                                </a>
+                            </button>
+                        </li>
+                        <li class="eight">
+                            <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                <a href="#">Cổ điển - Sang trọng (345)
+                                </a>
+                            </button>
+                        </li>
+                        <li class="nine">
+                            <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                <a href="#">Dạ hội - Quý phái (124)
+                                </a>
+                            </button>
+                        </li>
+                        <li class="ten">
+                            <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                <a href="#">Đơn giản - Dễ gần (278)
+                                </a>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <img src="image/q1.jpg" style="margin-top: 30px; width:100% ;">
+                <br> <br> <br>
+                <div>
+                    <video  width="270" height="300" autoplay controls muted loop src="image/video1.mp4"></video>
+                </div>
+                <br>
+                <img src="image/q2.png" style="margin-top: 30px; width:100%">
+                <br> <br> <br>
+                <div>
+                    <video width="270" height="300" autoplay controls muted loop src="image/video2.mp4"></video>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao1.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao2.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao3.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao4.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao5.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao6.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao7.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao8.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao9.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao10.jpg" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao11.jpg" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao12.jpg" width="75%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao13.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao14.PNG" width="55%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao15.PNG" width="70%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao16.PNG" width="80%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao17.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao18.PNG" width="85%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao19.PNG" width="70%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail anh" >
+                        <a href="#">
+                            <img src="image/sanpham/ao/ao20.PNG" width="100%">
+                            <div class="caption">Áo nữ</div>
+                            <div class="gia">
+                                <p style="color: red;">159.000<small>đ</small></p>
+                                <small><del>219.000đ</del>    -39%</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!--danh mục-->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 panel panel-info" >
+            <div class="panel-heading icon">
+                <a href="/chitietao">
+                    <img src="image/icon/ao.png" alt=""><strong> Áo thời trang</strong>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 panel panel-info">
+            <div class="panel-heading icon">
+                <a href="#">
+                    <img src="image/icon/quan.png" alt=""><strong> Quần Jean & Baggy</strong>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 panel panel-info">
+            <div class="panel-heading icon">
+                <a href="#">
+                    <img src="image/icon/giay.png" alt=""><strong> Sneaker & sandals</strong>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 panel panel-info">
+            <div class="panel-heading icon">
+                <a href="#">
+                    <img src="image/icon/dam.png" alt=""><strong> Chân váy & đầm</strong>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 panel panel-info">
+            <div class="panel-heading icon">
+                <a href="#">
+                    <img src="image/icon/tui.png" alt=""><strong> Túi xách</strong>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 panel panel-info" >
+            <div class="panel-heading icon">
+                <a href="#">
+                    <img src="image/icon/dongho.png" alt=""><strong> Đồng hồ</strong>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 panel panel-info">
+            <div class="panel-heading icon">
+                <a href="#">
+                    <img src="image/icon/phukien.png" alt=""><strong> Phụ kiện</strong>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 panel panel-info">
+            <div class="panel-heading icon">
+                <a href="#">
+                    <img src="image/icon/trangsuc.png" alt=""><strong> Trang sức</strong>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 panel panel-info">
+            <div class="panel-heading icon">
+                <a href="#">
+                    <img src="image/icon/duongda.png" alt=""><strong> Dưỡng da</strong>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12 panel panel-info">
+            <div class="panel-heading icon">
+                <a href="#">
+                    <img src="image/icon/trangdiem.png" alt=""><strong> Trang điểm</strong>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <!--footer-->
+
+    <div id="footer">
+        <div class="row">
+            <div class="col-md-7">
+                <p style="color: white">CÔNG TY TNHH BEAUTY</p>
+                <p style="color: white">Email: thiduyen.dang.98@gmail.com</p>
+                <p style="color: white">Hotline: 01684348350</p>
+                <p style="color: white">Copyright © 2013, Beauty Shop</p>
+                <p>Phát triển bởi Đặng Thị Duyên - Phan Thị Thùy Dương</p>
+            </div>
+            <div class="col-md-5">
+                <div>
+                                <span style="border-bottom: 1px solid gray;margin-top:
+                                        10px;font-size: 25px;color:black;margin-left: 20px;">Kết nối với chúng tôi</span>
+                </div>
+                <br>
+                <ul class="ketnoi ">
+                    <li>
+                        <a href="https://www.facebook.com/profile.php?id=100007916340603"><img class="icon" src="image/logo/facebook.png" style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/discover"><img class="icon" src="image/logo/google-plus.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/"><img class="icon" src="image/logo/instagram.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/"><img class="icon" src="image/logo/linkedin.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/?lang=vi"><img class="icon" src="image/logo/twitter.png" alt=""style="width: 10%;"></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    // khai bao su dung Jquery
+    $(document).ready(function() {
+        // Su kien scoll cua window
+
+        $(window).scroll(function() {
+            // neu tao do scroll hien tai >50px
+            if ($(window).scrollTop() >= 50) {
+                // chinh css margin top = 0
+                $('nav.navbar').css("margin-top", "0px");
+                // add them class cau hinh fixed thanh menu
+                $('nav.navbar').addClass("navbar-fixed-top");
+            } else {
+                $('nav.navbar').css("margin-top", "5px");
+                $('nav.navbar').removeClass("navbar-fixed-top");
+            }
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Customer Care</title>
+
+    <script src="assets/jquery/jquery.3.2.1.js "></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/bootstrap/js/parallax.min.js"></script>
+</head>
+<body>
+<div class="body parallax-window" data-parallax="scroll" data-image-src="image/hinh.png">
+    <!--thanh đăng nhập-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-shop-info">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>+039 438 1694</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span> thiduyen.dang.98@gmail.com</span></li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-nav">
+                <ul class="list-unstyled list-inline pull-right">
+                    <li><a href="/login" style="color:orangered">Đăng nhập</a></li>
+                    <li><a href="/register"style="color:orangered">Đăng kí</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--thanh logo-->
+    <div id="header">
+        <div class="row" style="margin-right: 0px !important;">
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
+                <div class="text">
+                    <input type="search" placeholder="Nhập sản phẩm bạn muốn tìm" style="margin-top: 10px;width: 250px;height: 30px; border: 2px solid #A9A9A9;border-radius: 12px;">
+                    <button class="btn btn-danger" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <div class="logo">
+                    <img src="image/logoabc.png" width="120" height="100" style="margin-left: 140px">
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12" style="text-align: center;">
+                <button class="btn btn-success btn-giohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+    <!--thanh trang chủ-->
+    <nav class="navbar navbar-inverse" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Beauty 2D</a>
+                    </div>
+                </div>
+                <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12" >
+                    <ul class="nav navbar-nav" style="font-size: 18px; ">
+                        <li ><a href="/">Trang chủ</a></li>
+                        <li><a href="/product">Sản phẩm</a></li>
+                        <li class="active"><a href="/care">Chăm sóc khách hàng</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--Care-->
+    <div class="row" style="background-color:wheat">
+        <div class="col-md-3">
+            <div >
+                            <span style="border-bottom: 1px solid gray;margin-top: 10px;
+                            font-size: 30px;color:blueviolet;"><strong>Beauty Care</strong></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div style="font-size: 15px">
+                <img src="image/icon/email.png" alt=""> Đừng bỏ lỡ hàng ngàn sản phẩm và chương trình siêu hấp dẫn
+            </div>
+        </div>
+        <div class="col-md-3" style="color: red">
+            <br>
+            <img src="image/icon/phone-call.png" alt=""> <strong>Hotline đặt hàng: 096 666 9811</strong>
+
+        </div>
+    </div>
+    <div style="background-color: whitesmoke">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div style="font-size: 20px; color: blue">
+                    <img src="image/icon/conversation.png" alt="">Những vấn đề thường gặp <br>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <h4>Tôi là khách hàng mới</h4>
+                <div class="panel-group">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse1">Hướng dẫn đặt hàng</a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <li>Tìm kiếm sản phẩm: Nhập thông tin sản phẩm cần tìm vào thanh tìm kiếm.</li>
+                                <li>Thêm sản phẩm vào giỏ hàng: <br>
+                                    Khi đã tìm được sản phẩm mong muốn, quý khách vui lòng bấm vào hình hoặc tên sản phẩm để vào được trang thông tin chi tiết của sản phẩm: <br>
+                                    - Kiểm tra thông tin sản phẩm. <br>
+                                    - Chọn số lượng sản phẩm. <br>
+                                    - Thêm sản phẩm vào giỏ hàng.
+                                </li>
+                                <li>Kiểm tra giỏ hàng và đặt hàng </li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse2">Beauty giao hàng trong bao lâu</a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Thời gian giao hàng dự kiến của Beauty sẽ tuỳ thuộc vào 3 yếu tố:
+                                <li> <strong>Thời gian đặt hàng:</strong> Thời gian giao hàng được bắt đầu kể từ khi Beauty xác nhận đơn hàng thành công, nếu quý khách đặt hàng sau giờ hành chính (từ 8h sáng đến 5h chiều), thời gian giao hàng sẽ được cộng thêm 1 ngày. </li>
+                                <li> <strong>Địa điểm nhận hàng:</strong> Beauty sẽ dựa vào địa chỉ quý khách đã đăng ký cho đơn hàng và áp dụng thời gian giao hàng dự kiến theo từng khu vực. </li>
+                                <li> <strong>Sản phẩm đặt mua:</strong>Nếu đơn hàng của quý khách có những sản phẩm "Đặt trước" (tức sản phẩm chưa được nhà sản xuất chính thức cung cấp trên thị trường) hoặc sản phẩm cần nhập hàng từ nhà cung cấp, thì thời gian giao hàng sẽ bắt đầu khi Beauty có đủ sản phẩm cho đơn hàng.</li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse3">Cách nhận biết sản phẩm còn hay hết hàng</a>
+                            </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Quý khách có thể nhận biết sản phẩm còn hàng hay hết hàng tại Beauty, bằng cách truy cập vào thông tin chi tiết của sản phẩm và kiểm tra 2 trạng thái sau:
+                                <li>Sản phẩm còn hàng sẽ có dòng "Thêm vào giỏ hàng".</li>
+                                <li>Sản phẩm hết hàng sẽ có dòng "Sản phẩm đã hết hàng"</li>
+                                Với sản phẩm còn hàng, quý khách vui lòng "Thêm vào giỏ hàng" và thực hiện đặt hàng dựa theo Hướng dẫn đặt hàng.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>Tôi đã có đơn hàng ở Beauty</h4>
+                <div class="panel-group">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse4">Hủy đơn hàng</a>
+                            </h4>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Quý khách có thể thực hiện hủy đơn hàng đã đặt ở website nếu đơn hàng đang trong quá trình xử lý. <br>
+                                Các bước để hủy đơn hàng:
+                                <li>Quý khách vui lòng đăng nhập vào tài khoản đã đặt đơn hàng. </li>
+                                <li>Vào trang quản lý đơn hàng và chọn đơn hàng cần hủy.</li>
+                                <li> Chọn tính năng "Hủy đơn hàng" ở cuối trang thông tin đơn hàng .</li>
+                                <li> Chọn lý do và thực hiện thao tác hủy</li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse5">Tôi có thể hẹn thời gian giao hàng cụ thể hay hẹn giao vào chủ nhật không?</a>
+                            </h4>
+                        </div>
+                        <div id="collapse5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Beauty giao hàng trong giờ hành chính: trong khoảng 8h30 - 17h30 và trong các ngày từ Thứ 2 đến thứ 7. <br>
+                                Do nhân viên vận chuyển giao hàng theo tuyến nên rất tiếc Beauty chưa thể hỗ trợ thời gian giao hàng cụ thể. <br>
+                                Sau khi đặt hàng thành công, Beauty sẽ thông báo thời gian giao hàng dự kiến cho đơn hàng, quý khách vui lòng sắp xếp thời gian và giữ liên lạc để nhận hàng trong thời gian đã thông báo. <br>
+                                Trong trường hợp nhân viên vận chuyển liên hệ vào thời gian chưa phù hợp, quý khách có thể giữ liên lạc qua điện thoại và hẹn lại thời gian giao hàng khác, nhân viên vận chuyển sẽ cố gắng hỗ trợ trong mức có thể.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse6">Tôi muốn thêm/bớt sản phẩm, thay đổi địa chỉ giao hàng</a>
+                            </h4>
+                        </div>
+                        <div id="collapse6" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Khi đã đặt hàng thành công, quý khách có thể truy cập vào tài khoản, bấm vào dòng "Đơn hàng của tôi" hoặc kiểm tra email để kiểm tra lại thông tin đơn hàng. <br>
+                                Trong trường hợp cần chỉnh sửa cho đơn hàng, quý khách có thể liên hệ với Beauty Care bằng cách vào trang "Gửi yêu cầu" và cung cấp thông tin chi tiết gồm:
+                                <li>Mã số đơn hàng</li>
+                                <li>Tên sản phẩm/địa chỉ mới và nhu cầu cần chỉnh sửa</li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div style="font-size: 20px; color: blue">
+                    <img src="image/icon/airplane.png" alt="">Giao nhận hàng <br>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <h4>Thời gian vận chuyển và cước phí</h4>
+                <div class="panel-group">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse7">Tra cứu thông tin đơn hàng</a>
+                            </h4>
+                        </div>
+                        <div id="collapse7" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Khi đặt hàng thành công, Quý Khách có thể theo dõi tiến trình xử lý và vận chuyển của đơn hàng bằng cách đăng nhập vào đường link: http://Beauty.vn/sales/order/tracking. <br>
+                                Để sử dụng tính năng này, Quý Khách vui lòng nhập địa chỉ email, mã số đơn hàng vào khung tương ứng, xóa hết các khoảng trắng trước và sau các ký tự, sau đó bấm "Kiểm Tra". Hệ thống sẽ hiển thị thông tin chi tiết về quá trình xử lý đơn hàng của Quý Khách ở Beauty và Đối Tác Giao Hàng.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse8">Cước phí vận chuyển và phụ phí</a>
+                            </h4>
+                        </div>
+                        <div id="collapse8" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Đơn hàng sẽ được miễn phí "Phí vận chuyển " khi:
+                                <li>Có giá trị trên 150,000 VNĐ ở khu vực TP. Hồ Chí Minh và Hà Nội.</li>
+                                <li>Có giá trị trên 250,000 VNĐ ở các tỉnh thành khác trên toàn quốc.</li>
+                                Trong trường hợp trị giá đơn hàng chưa đủ mức miễn phí vận chuyển thì phí sẽ được áp dụng như sau:
+                                <li>12,000 VNĐ ở khu vực TP. Hồ Chí Minh và Hà Nội.</li>
+                                <li>18,000 VNĐ ở các tỉnh thành khác trên toàn quốc.</li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse9">Thời gian giao hàng</a>
+                            </h4>
+                        </div>
+                        <div id="collapse9" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Hiện nay, Beauty.vn thực hiện giao hàng trong giờ hành chính trong khoảng 8h30 - 17h30 và trong các ngày từ Thứ 2 đến thứ 7. Beauty.vn sẽ thông báo thời gian giao hàng cho từng đơn hàng cụ thể khi quý khách hoàn tất bước chọn địa chỉ giao hàng trong quá trình đặt hàng và sau khi quý khách đặt hàng thành công thông qua nội dung đơn hàng trong tài khoản và email xác nhận đơn hàng. <br>
+                                Ngoài ra, thời gian giao hàng dự kiến của Beauty sẽ tuỳ thuộc vào 3 yếu tố:
+                                <li> <strong>Thời gian đặt hàng:</strong> Thời gian giao hàng được bắt đầu kể từ khi Beauty xác nhận đơn hàng thành công, nếu quý khách đặt hàng sau giờ hành chính (từ 8h sáng đến 5h chiều), thời gian giao hàng sẽ được cộng thêm 1 ngày. </li>
+                                <li> <strong>Địa điểm nhận hàng:</strong> Beauty sẽ dựa vào địa chỉ quý khách đã đăng ký cho đơn hàng và áp dụng thời gian giao hàng dự kiến theo từng khu vực. </li>
+                                <li> <strong>Sản phẩm đặt mua:</strong>Nếu đơn hàng của quý khách có những sản phẩm "Đặt trước" (tức sản phẩm chưa được nhà sản xuất chính thức cung cấp trên thị trường) hoặc sản phẩm cần nhập hàng từ nhà cung cấp, thì thời gian giao hàng sẽ bắt đầu khi Beauty có đủ sản phẩm cho đơn hàng.</li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>Chính sách giao hàng</h4>
+                <div class="panel-group">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse10">Một số câu hỏi thường gặp</a>
+                            </h4>
+                        </div>
+                        <div id="collapse10" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <strong> Việc kiểm tra không bao gồm mở seal ( niêm phong ) riêng của sản phẩm hay sử dụng thử thì làm sao tôi biết sản phẩm bên trong hộp có nguyên vẹn hay không?</strong> <br>
+                                Beauty cam kết mọi yêu cầu đổi, trả hoặc bảo hành sẽ được thực hiện đúng chính sách . Nếu các lỗi phát sinh được xác nhận là không thể phát hiện trong quá trình xem hàng ( đồng kiểm ), Quý Khách vui lòng gửi yêu cầu đến Beauty để được hỗ trợ cụ thể. <br>
+                                <strong>Tôi nhờ người thân nhận hàng thì người thân tôi ký biên bản đồng kiểm có được không?</strong> <br>
+                                Được, Quý Khách vui lòng chắc chắn việc ký xác nhận chỉ được thực hiện sau khi đã kiểm tra hàng hóa.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse11">Chính sách xem hàng - đồng kiểm</a>
+                            </h4>
+                        </div>
+                        <div id="collapse11" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Nhằm đáp ứng nhu cầu và bảo vệ tối đa quyền lợi khách hàng khi sử dụng dịch vụ của Beauty.vn.
+                                Beauty đã triển khai chính sách hỗ trợ việc xem và kiểm tra hàng hóa khi giao hàng. Khách hàng khi nhận hàng từ nhân viên vận chuyển có thể mở niêm phong thùng hàng của Beauty để kiểm tra hàng hóa.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h4 class="panel-title" style="color: blue">
+                                <a data-toggle="collapse" href="#collapse12">Lưu ý khi nhận hàng</a>
+                            </h4>
+                        </div>
+                        <div id="collapse12" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Beauty.vn khuyến khích quý khách nên kiểm tra niêm phong thùng hàng trước khi nhận hàng. <br>
+                                Trong trường hợp niêm phong của Beauty.vn có dấu hiệu bị tháo gỡ, quý khách có thể yêu cầu kiểm tra nội dung hàng hóa bên trong để hạn chế rủi ro. <br>
+                                Đối với đơn hàng đã được thanh toán trước, nhân viên giao nhận có thể yêu cầu người nhận hàng cung cấp CMND / giấy phép lái xe để chụp ảnh hoặc ghi lại thông tin.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 send-contact">
+            <h1 class="font-blonde-script content-header">Gửi liên hệ</h1>
+            <form action="#" method="post" >
+                <div class="form-row">
+                    <input type="text" class="form-control" placeholder="Email" style="opacity: 0.5;"/>
+                </div>
+                <textarea class="form-control" rows="8" style="opacity: 0.5;"></textarea>
+                <button class="btn btn-success dangnhap" type="submit">Gửi</button>
+                <button class="btn btn-danger dangnhap" type="submit">Hủy</button>
+            </form>
+        </div>
+    </div>
+    <!--footer-->
+    <div id="footer">
+        <div class="row">
+            <div class="col-md-7">
+                <p style="color: white">CÔNG TY TNHH BEAUTY</p>
+                <p style="color: white">Email: thiduyen.dang.98@gmail.com</p>
+                <p style="color: white">Hotline: 01684348350</p>
+                <p style="color: white">Copyright © 2013, Beauty Shop</p>
+                <p>Phát triển bởi Đặng Thị Duyên - Phan Thị Thùy Dương</p>
+            </div>
+            <div class="col-md-5">
+                <div>
+                  <span style="border-bottom: 1px solid gray;margin-top:
+                          10px;font-size: 25px;color:black;margin-left: 20px;">Kết nối với chúng tôi</span>
+                </div>
+                <br>
+                <ul class="ketnoi ">
+                    <li>
+                        <a href="https://www.facebook.com/profile.php?id=100007916340603"><img class="icon" src="image/logo/facebook.png" style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/discover"><img class="icon" src="image/logo/google-plus.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/"><img class="icon" src="image/logo/instagram.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/"><img class="icon" src="image/logo/linkedin.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/?lang=vi"><img class="icon" src="image/logo/twitter.png" alt=""style="width: 10%;"></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // khai bao su dung Jquery
+    $(document).ready(function() {
+        // Su kien scoll cua window
+
+        $(window).scroll(function() {
+            // neu tao do scroll hien tai >50px
+            if ($(window).scrollTop() >= 50) {
+                // chinh css margin top = 0
+                $('nav.navbar').css("margin-top", "0px");
+                // add them class cau hinh fixed thanh menu
+                $('nav.navbar').addClass("navbar-fixed-top");
+            } else {
+                $('nav.navbar').css("margin-top", "5px");
+                $('nav.navbar').removeClass("navbar-fixed-top");
+            }
+        })
+    })
+</script>
+</body>
+</html>

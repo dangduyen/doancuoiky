@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>San Pham</title>
+    <script src="assets/jquery/jquery.3.2.1.js "></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style_product.css">
+    <script src="assets/bootstrap/js/parallax.min.js"></script>
+</head>
+<body>
+<div class="body parallax-window" data-parallax="scroll" data-image-src="image/hinh.png">
+    <!--thanh đăng nhập-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-shop-info">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>+039 438 1694</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span> thiduyen.dang.98@gmail.com</span></li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-nav">
+                <ul class="list-unstyled list-inline pull-right">
+                    <li><a href="/login" style="color:orangered">Đăng nhập</a></li>
+                    <li><a href="/register"style="color:orangered">Đăng kí</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--thanh logo-->
+    <div id="header">
+        <div class="row" style="margin-right: 0px !important;">
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
+                <div class="text" style="text-align: center">
+                    <input type="search" placeholder="Nhập sản phẩm bạn muốn tìm" style="width: 250px;height: 30px; border: 2px solid #A9A9A9;border-radius: 12px;">
+                    <button class="btn btn-danger" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <div class="logo" style="text-align: center">
+                    <img src="image/logoabc.png" width="120" height="100" >
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12" style="text-align: center;">
+                <button class="btn btn-success btn-giohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+    <!--thanh trang chủ-->
+    <nav class="navbar navbar-inverse" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Beauty 2D</a>
+                    </div>
+                </div>
+                <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12" >
+                    <ul class="nav navbar-nav" style="font-size: 18px; ">
+                        <li ><a href="/">Trang chủ</a></li>
+                        <li class="active"><a href="/product">Sản phẩm</a></li>
+                        <li><a href="/care">Chăm sóc khách hàng</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--sản phẩm hot-->
+    <div class="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="main-menubar">
+                        <ul class="main-menubar1">
+                            <li class="one">
+                                <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                    <a href="#">Áo thời trang
+                                        <span class="right-edge">&raquo</span>
+                                    </a>
+                                </button>
+                                <div class="dropdown-content1">
+                                    <div class="row">
+                                        <div class="column">
+                                            <h3>DANH MỤC</h3>
+                                            <a href="#">Áo sơ mi</a>
+                                            <a href="#">Áo sơ mi cách điệu</a>
+                                            <a href="#">Áo thun in hình</a>
+                                            <a href="#">Án thun cặp đôi</a>
+                                            <a href="#">Sơ mi trắng</a>
+                                            <a href="#">Sơ mi công sở</a>
+                                            <a href="#">Áo khoác len</a>
+                                            <a href="#">Áo khoác Jean</a>
+                                            <a href="#">Áo khoác gió</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>KIỂU CÁCH</h3>
+                                            <a href="#">Cổ điển</a>
+                                            <a href="#">Công sở</a>
+                                            <a href="#">Xuân - Hè</a>
+                                            <a href="#">Thu - Đông</a>
+                                            <a href="#">Dạo phố</a>
+                                            <a href="#">Dạ hội</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>NHÀ PHÁT HÀNH</h3>
+                                            <a href="#">Elise</a>
+                                            <a href="#">Chanel </a>
+                                            <a href="#">Gucci</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="two">
+                                <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                    <a href="#">Quần Jean & Baggy
+                                        <span class="right-edge">&raquo</span>
+                                    </a>
+                                </button>
+                                <div class="dropdown-content2">
+                                    <div class="row">
+                                        <div class="column">
+                                            <h3>DANH MỤC</h3>
+                                            <a href="#">Quần Jean nữ</a>
+                                            <a href="#">Baggy nữ</a>
+                                            <a href="#">Legging nữ</a>
+                                            <a href="#">Quần xẻ tà</a>
+                                            <a href="#">Quần ống rộng</a>
+                                            <a href="#">Short nữ</a>
+                                            <a href="#">Quần lưng cao</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>KIỂU CÁCH</h3>
+                                            <a href="#">Cổ điển</a>
+                                            <a href="#">Công sở</a>
+                                            <a href="#">Xuân - Hè</a>
+                                            <a href="#">Thu - Đông</a>
+                                            <a href="#">Dạo phố</a>
+                                            <a href="#">Dạ hội</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>NHÀ PHÁT HÀNH</h3>
+                                            <a href="#">Elise</a>
+                                            <a href="#">Chanel </a>
+                                            <a href="#">Gucci</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="three">
+                                <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                    <a href="#">Sneaker & Sandals
+                                        <span class="right-edge">&raquo</span>
+                                    </a>
+                                </button>
+                                <div class="dropdown-content3">
+                                    <div class="row">
+                                        <div class="column">
+                                            <h3>DANH MỤC</h3>
+                                            <a href="#">Giày cao gót nữ</a>
+                                            <a href="#">Giày đế xuồng</a>
+                                            <a href="#">Seaker nữ</a>
+                                            <a href="#">Giày búp bê</a>
+                                            <a href="#">Giày oxford nữ</a>
+                                            <a href="#">Sandal đế bệt nữ</a>
+                                            <a href="#">Giày boot nữ</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>XUẤT XỨ</h3>
+                                            <a href="#">Việt Nam</a>
+                                            <a href="#">Trung Quốc</a>
+                                            <a href="#">TaiWan</a>
+                                            <a href="#">HongKong </a>
+                                            <a href="#">China</a>
+                                            <a href="#">Đài Loan</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>NHÀ PHÁT HÀNH</h3>
+                                            <a href="#">Clae</a>
+                                            <a href="#">Vento</a>
+                                            <a href="#">Bitis</a>
+                                            <a href="#">Merry</a>
+                                            <a href="#">Teramo</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="four">
+                                <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                    <a href="#">Chân váy & đầm
+                                        <span class="right-edge">&raquo</span>
+                                    </a>
+                                </button>
+                                <div class="dropdown-content4">
+                                    <div class="row">
+                                        <div class="column">
+                                            <h3>DANH MỤC</h3>
+                                            <a href="#">Chân váy jean</a>
+                                            <a href="#">Chân váy vải voan</a>
+                                            <a href="#">Đầm body</a>
+                                            <a href="#">Đầm suông</a>
+                                            <a href="#">Đầm xòe</a>
+                                            <a href="#">Đầm maxi</a>
+                                            <a href="#">Đầm ôm</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>KIỂU CÁCH</h3>
+                                            <a href="#">Cổ điển</a>
+                                            <a href="#">Công sở</a>
+                                            <a href="#">Xuân - Hè</a>
+                                            <a href="#">Thu - Đông</a>
+                                            <a href="#">Dạo phố</a>
+                                            <a href="#">Dạ hội</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>NHÀ PHÁT HÀNH</h3>
+                                            <a href="#">Elise</a>
+                                            <a href="#">Chanel </a>
+                                            <a href="#">Gucci</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                            <a href="#">Nhật Bản</a>
+                                            <a href="#">Cooki</a>
+                                            <a href="#">Apple</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="five">
+                                <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                    <a href="#">Túi xách
+                                        <span class="right-edge">&raquo</span>
+                                    </a>
+                                </button>
+                                <div class="dropdown-content5">
+                                    <div class="row">
+                                        <div class="column">
+                                            <h3>DANH MỤC</h3>
+                                            <a href="#">Túi xách tay nữ</a>
+                                            <a href="#">Túi đeo chéo nữ</a>
+                                            <a href="#">Túi da </a>
+                                            <a href="#">Túi hai quai</a>
+                                            <a href="#">Túi dây bảng to</a>
+                                            <a href="#">Túi vải</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>KIỂU CÁCH</h3>
+                                            <a href="#">Cổ điển</a>
+                                            <a href="#">Công sở</a>
+                                            <a href="#">Xuân - Hè</a>
+                                            <a href="#">Thu - Đông</a>
+                                            <a href="#">Dạo phố</a>
+                                            <a href="#">Dạ hội</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>NHÀ PHÁT HÀNH</h3>
+                                            <a href="#">Elise</a>
+                                            <a href="#">Chanel </a>
+                                            <a href="#">Gucci</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                            <a href="#">Nhật Bản</a>
+                                            <a href="#">Cooki</a>
+                                            <a href="#">Apple</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="six">
+                                <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                    <a href="#">Đồng hồ
+                                        <span class="right-edge">&raquo</span>
+                                    </a>
+                                </button>
+                                <div class="dropdown-content6">
+                                    <div class="row">
+                                        <div class="column">
+                                            <h3>DANH MỤC</h3>
+                                            <a href="#">Đồng hồ kim</a>
+                                            <a href="#">Đồng hồ lộ máy</a>
+                                            <a href="#">Đồng hồ vòng tay</a>
+                                            <a href="#">Đông hồ dây</a>
+                                            <a href="#">Đồng hồ thể thao</a>
+                                            <a href="#">Đồng hồ đôi</a>
+                                            <a href="#">Đồng hồ điện tử</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>KIỂU CÁCH</h3>
+                                            <a href="#">Cổ điển</a>
+                                            <a href="#">Công sở</a>
+                                            <a href="#">Xuân - Hè</a>
+                                            <a href="#">Thu - Đông</a>
+                                            <a href="#">Dạo phố</a>
+                                            <a href="#">Dạ hội</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>NHÀ PHÁT HÀNH</h3>
+                                            <a href="#">Elise</a>
+                                            <a href="#">Chanel </a>
+                                            <a href="#">Gucci</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                            <a href="#">Nhật Bản</a>
+                                            <a href="#">Cooki</a>
+                                            <a href="#">Apple</a>
+                                            <a href="#">Thụy Sĩ</a>
+                                            <a href="#">Hàn Quốc</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="seven">
+                                <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                    <a href="#">Phụ kiện
+                                        <span class="right-edge">&raquo</span>
+                                    </a>
+                                </button>
+                                <div class="dropdown-content7">
+                                    <div class="row">
+                                        <div class="column">
+                                            <h3>DANH MỤC</h3>
+                                            <a href="#">Vòng tay cao cấp</a>
+                                            <a href="#">Mắt kiếng đen thời trang</a>
+                                            <a href="#">Mắt kiếng đi biển</a>
+                                            <a href="#">Balo đi học</a>
+                                            <a href="#">Balo thời trang</a>
+                                            <a href="#">Mũ cối mềm</a>
+                                            <a href="#">Mũ đi biển</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>KIỂU CÁCH</h3>
+                                            <a href="#">Cổ điển</a>
+                                            <a href="#">Công sở</a>
+                                            <a href="#">Xuân - Hè</a>
+                                            <a href="#">Thu - Đông</a>
+                                            <a href="#">Dạo phố</a>
+                                            <a href="#">Dạ hội</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>NHÀ PHÁT HÀNH</h3>
+                                            <a href="#">Elise</a>
+                                            <a href="#">Chanel </a>
+                                            <a href="#">Gucci</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                            <a href="#">Nhật Bản</a>
+                                            <a href="#">Cooki</a>
+                                            <a href="#">Apple</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="eight">
+                                <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                    <a href="#">Trang sức
+                                        <span class="right-edge">&raquo</span>
+                                    </a>
+                                </button>
+                                <div class="dropdown-content8">
+                                    <div class="row">
+                                        <div class="column">
+                                            <h3>DANH MỤC</h3>
+                                            <a href="#">Khuyên tai nụ</a>
+                                            <a href="#">Khuyên tai thả</a>
+                                            <a href="#">Khuyên tai tròn</a>
+                                            <a href="#">Dây chuyền mặt</a>
+                                            <a href="#">Dây chuyền xích</a>
+                                            <a href="#">Vòng cổ choker</a>
+                                            <a href="#">Nhẫn cặp</a>
+                                            <a href="#">Dây chuyền cặp</a>
+                                            <a href="#">Nhẫn đá phong thủy</a>
+                                            <a href="#">Nhẫn đính hạt</a>
+
+                                        </div>
+                                        <div class="column">
+                                            <h3>KIỂU CÁCH</h3>
+                                            <a href="#">Cổ điển</a>
+                                            <a href="#">Công sở</a>
+                                            <a href="#">Xuân - Hè</a>
+                                            <a href="#">Thu - Đông</a>
+                                            <a href="#">Dạo phố</a>
+                                            <a href="#">Dạ hội</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>NHÀ PHÁT HÀNH</h3>
+                                            <a href="#">Elise</a>
+                                            <a href="#">Chanel </a>
+                                            <a href="#">Gucci</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                            <a href="#">Nhật Bản</a>
+                                            <a href="#">Cooki</a>
+                                            <a href="#">Apple</a>
+                                            <a href="#">Orange</a>
+                                            <a href="#">Hàn Quốc</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nine">
+                                <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                    <a href="#">Dưỡng da
+                                        <span class="right-edge">&raquo</span>
+                                    </a>
+                                </button>
+                                <div class="dropdown-content9">
+                                    <div class="row">
+                                        <div class="column">
+                                            <h3>DANH MỤC</h3>
+                                            <a href="#">Dưỡng da mặt</a>
+                                            <a href="#">Điều trị, chăm sóc mụn</a>
+                                            <a href="#">Kem làm trắng</a>
+                                            <a href="#">Dưỡng vùng mắt</a>
+                                            <a href="#">Kem chống nắng</a>
+                                            <a href="#">Sữa rửa mặt</a>
+                                            <a href="#">Nước hoa hồng</a>
+                                            <a href="#">Nước tẩy trang</a>
+                                            <a href="#">Mặt nạ dưỡng da</a>
+                                            <a href="#">Mặt nạ ngủ mắt/môi/mặt</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>XUẤT XỨ</h3>
+                                            <a href="#">Việt Nam</a>
+                                            <a href="#">Hàn Quốc</a>
+                                            <a href="#">Thái Lan</a>
+                                            <a href="#">Singapo</a>
+                                            <a href="#">New York</a>
+                                            <a href="#">Austraylia</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>NHÀ PHÁT HÀNH</h3>
+                                            <a href="#">Thế giới Skinfood</a>
+                                            <a href="#">Bici</a>
+                                            <a href="#">Maybelline</a>
+                                            <a href="#">Organique</a>
+                                            <a href="#">Innisfree</a>
+                                            <a href="#">Sunplay</a>
+                                            <a href="#">Skin Aqua</a>
+                                            <a href="#">Laneige</a>
+                                            <a href="#">Shiseido</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="ten">
+                                <button class="btn btn-default btn-block setnone hvr-bounce-to-right left-edge">
+                                    <a href="#">Trang điểm
+                                        <span class="right-edge">&raquo</span>
+                                    </a>
+                                </button>
+                                <div class="dropdown-content10">
+                                    <div class="row">
+                                        <div class="column">
+                                            <h3>DANH MỤC</h3>
+                                            <a href="#">Phấn nền</a>
+                                            <a href="#">Kem nền dạng thỏi </a>
+                                            <a href="#">Phấn mắt</a>
+                                            <a href="#">Chì kẻ mày</a>
+                                            <a href="#">Mascara</a>
+                                            <a href="#">Phấn nước</a>
+                                            <a href="#">Son thỏi lì</a>
+                                            <a href="#">Son kem lì</a>
+                                            <a href="#">Kem che khuyết điểm</a>
+                                            <a href="#">Bút tạo khối</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>XUẤT XỨ</h3>
+                                            <a href="#">Việt Nam</a>
+                                            <a href="#">Hàn Quốc</a>
+                                            <a href="#">Thái Lan</a>
+                                            <a href="#">Singapo</a>
+                                            <a href="#">New York</a>
+                                            <a href="#">Austraylia</a>
+                                        </div>
+                                        <div class="column">
+                                            <h3>NHÀ PHÁT HÀNH</h3>
+                                            <a href="#">Thế giới Skinfood</a>
+                                            <a href="#">Bici</a>
+                                            <a href="#">Maybelline</a>
+                                            <a href="#">Organique</a>
+                                            <a href="#">Innisfree</a>
+                                            <a href="#">Sunplay</a>
+                                            <a href="#">Skin Aqua</a>
+                                            <a href="#">Laneige</a>
+                                            <a href="#">Shiseido</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
+                            <div class="thumbnail anh">
+                                <a href="#">
+                                    <img src="image/Timkiemphobien/non.PNG" style="width:100%;">
+                                    <div class="caption">Nón nữ thời trang <br>15.235 Sản phẩm </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
+                            <div class="thumbnail anh">
+                                <a href="#">
+                                    <img src="image/Timkiemphobien/ao.PNG" style="width:100%;">
+                                    <div class="caption">Áo kiểu thời trang <br>21.023 Sản phẩm </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
+                            <div class="thumbnail anh">
+                                <a href="#">
+                                    <img src="image/Timkiemphobien/vay.PNG" style="width:100%;">
+                                    <div class="caption">Chân váy thời trang <br>10.235 Sản phẩm </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
+                            <div class="thumbnail anh">
+                                <a href="#">
+                                    <img src="image/Timkiemphobien/vong.PNG" style="width:100%;">
+                                    <div class="caption">Vòng tay thời trang <br>10.289 Sản phẩm </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
+                            <div class="thumbnail anh">
+                                <a href="#">
+                                    <img src="image/Timkiemphobien/tui.PNG" style="width:100%;">
+                                    <div class="caption">Túi xách thời trang <br>21.365 Sản phẩm </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
+                            <div class="thumbnail anh">
+                                <a href="#">
+                                    <img src="image/Timkiemphobien/giay.PNG" style="width:100%;">
+                                    <div class="caption">Giày nữ thời trang <br>32.123 Sản phẩm </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
+                            <div class="thumbnail anh">
+                                <a href="#">
+                                    <img src="image/Timkiemphobien/balo.PNG" style="width:100%;">
+                                    <div class="caption">Balo nữ thời trang <br>33.562 Sản phẩm </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
+                            <div class="thumbnail anh">
+                                <a href="#">
+                                    <img src="image/Timkiemphobien/quan.PNG" style="width:100%;">
+                                    <div class="caption">Baggy nữ thời trang <br>12.023 Sản phẩm </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End row -->
+
+        </div>
+        <!-- End container -->
+        <hr>
+        <!--sản phẩm hot chi tiết-->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="content-horizontal">
+                    <div class="title-type" >
+                        <span style="color: red">SẢN PHẨM HOT - ƯU ĐÃI ĐẶC BIỆT</span>
+                    </div>
+                    <div class="type-horizontal">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="thumbnail anh" >
+                                    <a href="#">
+                                        <img src="image/sphot/balo.PNG" width="100%">
+                                        <div class="caption">Balo nữ thời trang</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="thumbnail anh">
+                                    <a href="#">
+                                        <img src="image/sphot/dongho.PNG" width="100%">
+                                        <div class="caption">Đồng hồ nữ cá tính</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="thumbnail anh">
+                                    <a href="#">
+                                        <img src="image/sphot/giay.PNG" width="100%">
+                                        <div class="caption">Sneaker cá tính</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="thumbnail anh" >
+                                    <a href="#">
+                                        <img src="image/sphot/vay.PNG" width="95%">
+                                        <div class="caption">Chân váy cao cấp</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="thumbnail anh">
+                                    <a href="#">
+                                        <img src="image/sphot/vong.PNG" width="100%">
+                                        <div class="caption">Vòng tay thời trang</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="thumbnail anh">
+                                    <a href="#">
+                                        <img src="image/sphot/k5.jpg" width="100%">
+                                        <div class="caption">Mắt kính cao cấp</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <!--Chi tiết xu hướng-->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="content-horizontal">
+                    <div class="title-type" >
+                        <span style="color: red">XU HƯỚNG THỜI TRANG MỚI</span>
+                    </div>
+                    <div class="type-horizontal">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+                                <div class="thumbnail anh">
+                                    <a href="#">
+                                        <img src="image/spxuhuong/giay.PNG" style="width:100%;">
+                                        <div class="caption">Sandals</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+                                <div class="thumbnail anh">
+                                    <a href="#">
+                                        <img src="image/spxuhuong/sneaker.PNG" style="width:100%;">
+                                        <div class="caption">Sneakers</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+                                <div class="thumbnail anh">
+                                    <a href="#">
+                                        <img src="image/spxuhuong/somi.PNG" style="width:100%;">
+                                        <div class="caption">Sơ mi</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+                                <div class="thumbnail anh">
+                                    <a href="#">
+                                        <img src="image/spxuhuong/vay.PNG" style="width:100%;">
+                                        <div class="caption">Chân váy</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+                                <div class="thumbnail anh">
+                                    <a href="#">
+                                        <img src="image/spxuhuong/vong.PNG" style="width:100%;">
+                                        <div class="caption">Vòng tay</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    <!-- Sp moi -->
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <br>
+
+    </div>
+    <!--footer-->
+    <hr>
+    <div id="footer">
+        <div class="row">
+            <div class="col-md-7">
+                <p style="color: white">CÔNG TY TNHH BEAUTY</p>
+                <p style="color: white">Email: thiduyen.dang.98@gmail.com</p>
+                <p style="color: white">Hotline: 01684348350</p>
+                <p style="color: white">Copyright © 2013, Beauty Shop</p>
+                <p>Phát triển bởi Đặng Thị Duyên - Phan Thị Thùy Dương</p>
+            </div>
+            <div class="col-md-5">
+                <div>
+                        <span style="border-bottom: 1px solid gray;margin-top:
+                                10px;font-size: 25px;color:black;margin-left: 20px;">Kết nối với chúng tôi</span>
+                </div>
+                <br>
+                <ul class="ketnoi ">
+                    <li>
+                        <a href="https://www.facebook.com/profile.php?id=100007916340603"><img class="icon" src="image/logo/facebook.png" style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/discover"><img class="icon" src="image/logo/google-plus.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/"><img class="icon" src="image/logo/instagram.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/"><img class="icon" src="image/logo/linkedin.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/?lang=vi"><img class="icon" src="image/logo/twitter.png" alt=""style="width: 10%;"></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    // khai bao su dung Jquery
+    $(document).ready(function() {
+        // Su kien scoll cua window
+
+        $(window).scroll(function() {
+            // neu tao do scroll hien tai >50px
+            if ($(window).scrollTop() >= 50) {
+                // chinh css margin top = 0
+                $('nav.navbar').css("margin-top", "0px");
+                // add them class cau hinh fixed thanh menu
+                $('nav.navbar').addClass("navbar-fixed-top");
+            } else {
+                $('nav.navbar').css("margin-top", "5px");
+                $('nav.navbar').removeClass("navbar-fixed-top");
+            }
+        })
+    })
+</script>
+</body>
+</html>
