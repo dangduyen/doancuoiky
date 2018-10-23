@@ -5,10 +5,10 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
-public class ChiTietGioHang_Id implements Serializable {
+public class CartDetail_id implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
-    private GioHang giohang;
+    private Cart cart;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private  SanPham sanpham;
+    private  Product product;
 }
