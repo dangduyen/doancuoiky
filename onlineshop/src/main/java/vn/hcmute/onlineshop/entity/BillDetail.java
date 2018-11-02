@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 @Entity(name = "bill_details")
 public class BillDetail {
     @EmbeddedId
-    private BillDetail_id id;
+    private BillDetailId id;
     private long quantity;
     private float price;
 }

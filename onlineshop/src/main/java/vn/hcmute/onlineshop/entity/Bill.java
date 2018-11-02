@@ -10,7 +10,7 @@ public class Bill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private double total;
-    private Date pay_date;
+    private Date payDate;
     private String recipients;
 
     @ManyToOne(fetch = FetchType.LAZY)

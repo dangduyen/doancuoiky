@@ -8,7 +8,7 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String usename;
+    private String username;
     private String password;
     @ManyToMany
     @JoinTable(
@@ -23,4 +23,63 @@ public class Account {
 
     @OneToMany(mappedBy = "account")
     private List<History> lstHistory;
+
+    public Account() {
+    }
+
+    public Account(String username, String password, List<Role> lstRole, Customer customer, List<History> lstHistory) {
+        this.username = username;
+        this.password = password;
+        this.lstRole = lstRole;
+        this.customer = customer;
+        this.lstHistory = lstHistory;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Role> getLstRole() {
+        return lstRole;
+    }
+
+    public void setLstRole(List<Role> lstRole) {
+        this.lstRole = lstRole;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<History> getLstHistory() {
+        return lstHistory;
+    }
+
+    public void setLstHistory(List<History> lstHistory) {
+        this.lstHistory = lstHistory;
+    }
 }

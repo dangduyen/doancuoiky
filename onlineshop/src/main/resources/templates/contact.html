@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dang nhap</title>
+    <title>Liên hệ</title>
 
     <script src="assets/jquery/jquery.3.2.1.js "></script>
     <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/style.css">
@@ -16,6 +16,7 @@
 </head>
 <body>
 <div class="body parallax-window" data-parallax="scroll" data-image-src="image/hinh.png">
+    <!--thanh đăng nhập-->
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-shop-info">
@@ -26,30 +27,32 @@
             </div>
             <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-nav">
                 <ul class="list-unstyled list-inline pull-right">
-                    <li><a href="/login"style="color:orangered">Đăng nhập</a></li>
-                    <li><a href="/register"style="color:orangered">Đăng kí</a></li>
+                    <li><a href="/login" style="color:orangered">Đăng nhập</a></li>
+                    <li><a href="/register"style="color:orangered">Đăng ký</a></li>
                 </ul>
             </div>
         </div>
     </div>
+    <!--thanh logo-->
     <div id="header">
-        <div class="row">
+        <div class="row" style="margin-right: 0px !important;">
             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
-                <div class="text">
-                    <input type="search" placeholder="Nhập sản phẩm bạn muốn tìm" style="margin-top: 10px;width: 250px;height: 30px; border: 2px solid #A9A9A9;border-radius: 12px;">
+                <div class="text" style="text-align: center">
+                    <input type="search" placeholder="Nhập sản phẩm bạn muốn tìm" style="width: 250px;height: 30px; border: 2px solid #A9A9A9;border-radius: 12px;">
                     <button class="btn btn-danger" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
                 </div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                <div class="logo">
-                    <img src="image/logoabc.png" width="120" height="100" style="margin-left: 140px">
+                <div class="logo" style="text-align: center">
+                    <img src="image/logoabc.png" width="120" height="100" >
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
+            <div class="col-md-4 col-lg-4 col-sm-12" style="text-align: center;">
                 <button class="btn btn-success btn-giohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</button>
             </div>
         </div>
     </div>
+    <!--thanh trang chủ-->
     <nav class="navbar navbar-inverse" >
         <div class="container-fluid">
             <div class="row">
@@ -63,74 +66,57 @@
                         <li><a href="/">Trang chủ</a></li>
                         <li><a href="/product">Sản phẩm</a></li>
                         <li><a href="/care">Chăm sóc khách hàng</a></li>
-                        <li><a href="/contact">Liên hệ</a></li>
+                        <li  class="active"><a href="/contact">Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
-    <div class="row">
-        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12"></div>
-        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-            <form style="background-color:rgb(247, 251, 255) ;padding:30px 20px;opacity: 0.8;" th:action="@{/login}" th:object="${account}" method="POST">
-                <div style="text-align: center">
-                    <h3 style="color:burlywood">Chào mừng đến với Beauty Shop.</h3>
+    <div style="background-color: rgb(245, 229, 229); font-size: 15px">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
+                <img src="image/contact-icon-1.png" alt="" width="100%"; style="margin-top: 100px;">
+            </div>
+            <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
+                <div>
+                    <h3> <strong>Về chúng tôi</strong></h3>
+                    <p>Mua sắm online đang dần trở thành xu hướng của cuộc sống hiện đại.Ngày nay, với sự phát triển ngày càng
+                        vượt bậc của các thiết bị thông minh và những nền tảng mua sắm trực tuyến hữu ích, tiện lợi, việc ngồi
+                        ngay tại căn phòng của bạn để mua sắm đã không còn bất cứ khó khăn nào nữa. Thời trang luôn luôn đóng
+                        một vai trò vô cùng quan trọng của đời sống của chúng ta, hơn cả những gì bạn mặc lên người, đó còn là
+                        phong cách sống, là màu sắc riêng và là thẩm mỹ của bạn. Với ưu điểm là sự đa dạng trong lựa chọn và sự
+                        tiết kiệm giá thành nhờ giảm thiểu chi phí xây dựng các cửa hàng và phí quản lý, mọi người bắt đầu thay
+                        thế việc mua sắm thông thường bằng những trang web thời trang online.</p><br>
+                    <p>Hãy tham gia cùng chúng tôi trong ngôi nhà mới - BEAUTY, tiếp tục mua sắm theo phong cách yêu thích của bạn và
+                        cùng đồng hành với chúng tôi để có trải nghiệm mua sắm được mở rộng hơn.</p>
                 </div>
-                <div style="text-align: center">
-                    <h2>Login to your account</h2>
+                <div>
+                    <h3> <strong>Hotline</strong></h3>
+                    <li><i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                        Thời gian hoạt động: 8h-22h</li>
+                    <li><i class="fa fa-phone-square" aria-hidden="true"></i>+039 438 1694</li>
                 </div>
-                <hr>
-                <div th:if="${loginError}" th:utext="${loginError}">
+                <div>
+                    <h3> <strong>Liên hệ hợp tác</strong></h3>
+                    <p>123 Đinh Tiên Hoàng, Tân Bình, Thành phố Hồ Chí Minh</p>
                 </div>
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
-                            <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label for="" class="control-label">Username: </label></div>
-                            <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input name="username" type="text" class="form-control" th:field="*{username}" required=true></div>
-                            <br> <br> <br>
-                            <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label for="" class="control-label">Password: </label></div>
-                            <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input name="password" type="password" class="form-control" th:field="*{password}" required=true></div>
-                            <br> <br>
-                            <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"></div>
-                            <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-                                <label for="" class="control-label"><input type="checkbox">  Remember me</label>
-                            </div>
-
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                </div>
-                <br> <br>
-                <div style="text-align: center">
-                    <button class="btn btn-success dangnhap" type="submit">Đăng nhập</button>
-                </div>
-                <br>
-                <div style="list-style-type: none;text-align: center">
-                    <ul class="list-unstyled list-inline">
-                        <li><a href=""><img class="anh" src="image/facebook.png" alt="" style="width: 90%"></a></li>
-                        <li><a href=""><img class="anh" src="image/google-plus.png" alt="" style="width: 90%"></a></li>
-                    </ul>
-                </div>
-                <div style="text-align: center">
-                    <h5>Thành viên mới? <a href="Dangki.html">Đăng kí tại đây !!</a> </h5>
-                </div>
-            </form>
+            </div>
+            <div class="col-md-1 col-lg-1 col-xs-12 col-sm-12"></div>
         </div>
-        <div class="col-md-3"></div>
     </div>
-    <br> <hr>
+    <br>
     <!--footer-->
+
     <div id="footer">
         <div class="row">
-            <div class="col-md-7 col-lg-7 col-xs-12 col-sm-12">
+            <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
                 <p style="color: white">CÔNG TY TNHH BEAUTY</p>
                 <p style="color: white">Email: thiduyen.dang.98@gmail.com</p>
                 <p style="color: white">Hotline: 01684348350</p>
                 <p style="color: white">Copyright © 2013, Beauty Shop</p>
                 <p>Phát triển bởi Đặng Thị Duyên - Phan Thị Thùy Dương</p>
             </div>
-            <div class="col-md-5 col-lg-5 col-xs-12 col-sm-12">
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
                 <div>
                         <span style="border-bottom: 1px solid gray;margin-top:
                                 10px;font-size: 25px;color:black;margin-left: 20px;">Kết nối với chúng tôi</span>
@@ -158,8 +144,6 @@
         </div>
     </div>
 </div>
-</div>
-
 <script>
     // khai bao su dung Jquery
     $(document).ready(function() {

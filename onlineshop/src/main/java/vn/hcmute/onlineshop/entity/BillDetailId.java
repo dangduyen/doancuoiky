@@ -4,10 +4,10 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
-public class PromotionDetali_id implements Serializable {
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Promotion promotion;
-
+public class BillDetailId implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Bill bill;
 }

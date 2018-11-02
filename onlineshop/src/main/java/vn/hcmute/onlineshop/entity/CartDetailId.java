@@ -1,13 +1,14 @@
 package vn.hcmute.onlineshop.entity;
 
+
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
-public class BillDetail_id implements Serializable {
+public class CartDetailId implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
-    private Product product;
+    private Cart cart;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Bill bill;
+    private  Product product;
 }

@@ -1,14 +1,13 @@
 package vn.hcmute.onlineshop.entity;
 
-
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
-public class CartDetail_id implements Serializable {
+public class PromotionDetailId implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
-    private Cart cart;
+    private Promotion promotion;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private  Product product;
+    private Product product;
 }

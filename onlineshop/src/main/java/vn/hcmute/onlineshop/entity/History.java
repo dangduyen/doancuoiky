@@ -8,8 +8,8 @@ public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date login_date;
-    private Date logout_date;
+    private Date loginDate;
+    private Date logoutDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Account account;

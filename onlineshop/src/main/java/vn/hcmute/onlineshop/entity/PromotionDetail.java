@@ -7,7 +7,7 @@ import java.util.Date;
 @Entity(name = "promotion_details")
 public class PromotionDetail {
     @EmbeddedId
-    PromotionDetali_id id;
-    private Date start_date;
-    private Date end_date;
+    PromotionDetailId id;
+    private Date startDate;
+    private Date endDate;
 }

@@ -6,6 +6,6 @@ import javax.persistence.Entity;
 @Entity(name = "cart_details")
 public class CartDetail {
     @EmbeddedId
-    private CartDetail_id id;
+    private CartDetailId id;
     private long quantity;
 }

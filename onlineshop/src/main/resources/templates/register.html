@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +63,7 @@
                         <li><a href="/">Trang chủ</a></li>
                         <li><a href="/product">Sản phẩm</a></li>
                         <li><a href="/care">Chăm sóc khách hàng</a></li>
-                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="/contact">Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
@@ -71,7 +72,7 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
-            <form style="background-color:rgb(247, 251, 255) ;padding:30px 20px;opacity: 0.8;">
+            <form style="background-color:rgb(247, 251, 255) ;padding:30px 20px;opacity: 0.8; " th:action="@{/register}" th:object="${register}" method="POST">
                 <div style="text-align: center">
                     <h3 style="color:burlywood">Tạo tài khoản BeautyShop</h3>
                 </div>
@@ -79,24 +80,26 @@
                     <h2>Sign up your account</h2>
                 </div>
                 <hr>
+                <div th:if="${registerError}" th:utext="${registerError}">
+                </div>
                 <div class="row">
                     <div class="form-group">
                         <div class="col-md-1"></div>
                         <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
                             <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Username: </label></div>
-                            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{username}" required=true></div>
                             <br> <br>
                             <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Email: </label></div>
-                            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="email" class="form-control" required=true></div>
+                            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="email" class="form-control" th:field="*{email}" required=true></div>
                             <br> <br>
                             <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Phone: </label></div>
-                            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{phone}" required=true></div>
                             <br> <br>
                             <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Password: </label></div>
-                            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
+                            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input id="password" type="password" class="form-control" th:field="*{passwword}" required=true></div>
                             <br> <br>
                             <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Confirm Password: </label></div>
-                            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
+                            <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input id="confirm-password" type="password" class="form-control" th:field="*{confirmPassword}"required=true></div>
 
                         </div>
                         <div class="col-md-1"></div>
@@ -124,14 +127,14 @@
     <!--footer-->
     <div id="footer">
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-7 col-lg-7 col-xs-12 col-sm-12">
                 <p style="color: white">CÔNG TY TNHH BEAUTY</p>
                 <p style="color: white">Email: thiduyen.dang.98@gmail.com</p>
                 <p style="color: white">Hotline: 01684348350</p>
                 <p style="color: white">Copyright © 2013, Beauty Shop</p>
                 <p>Phát triển bởi Đặng Thị Duyên - Phan Thị Thùy Dương</p>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 col-lg-5 col-xs-12 col-sm-12">
                 <div>
                             <span style="border-bottom: 1px solid gray;margin-top:
                                     10px;font-size: 25px;color:black;margin-left: 20px;">Kết nối với chúng tôi</span>
@@ -178,8 +181,14 @@
                 $('nav.navbar').css("margin-top", "5px");
                 $('nav.navbar').removeClass("navbar-fixed-top");
             }
-        })
+        });
+
+        /**
+         * validate password and confirm password
+         * */
+
     })
+
 </script>
 </body>
 
