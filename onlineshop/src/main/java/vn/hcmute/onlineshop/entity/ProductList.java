@@ -18,4 +18,45 @@ public class ProductList {
             inverseJoinColumns = @JoinColumn(name = "id_product", referencedColumnName = "id")
     )
     private List<Product> lstProduct;
+
+    public ProductList() {
+    }
+
+    public ProductList(String name, int quantity, List<Product> lstProduct) {
+        this.name = name;
+        this.quantity = quantity;
+        this.lstProduct = lstProduct;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public List<Product> getLstProduct() {
+        return lstProduct;
+    }
+
+    public void setLstProduct(List<Product> lstProduct) {
+        this.lstProduct = lstProduct;
+    }
 }

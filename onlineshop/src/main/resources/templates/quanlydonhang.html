@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quản lý đơn hàng</title>
+
+    <script src="assets/jquery/jquery.3.2.1.js "></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/style_admin.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="assets/bootstrap/js/parallax.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+
+<!--thanh đăng nhập-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-shop-info">
+            <ul class="list-unstyled list-inline">
+                <li><i class="fa fa-phone"></i><span>+039 438 1694</span></li>
+                <li><i class="fa fa-envelope-o"></i><span> thiduyen.dang.98@gmail.com</span></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!--thanh logo-->
+<div id="header">
+    <div class="row">
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <div class="logo">
+                <img src="image/logoabc.png" width="120" height="100" style="margin-left: 140px">
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--thanh trang chủ-->
+<nav class="navbar navbar-inverse" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" >Beauty 2D</a>
+        </div>
+        <ul class="nav navbar-nav" >
+            <li><a href="#" style="margin-left: 150px;font-size: 18px ">Manager  > <i id="temp">Quản lý đơn hàng</i></a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" style="margin-left: 300px" href="#">Admin <span class="caret"></span></a>
+                <ul class="dropdown-menu" style="margin-left: 300px">
+                    <li><a href="#">Thông tin</a></li>
+                    <li><a href="#">Đăng xuất</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<div style="max-width:300px; margin-right: 20px;">
+    <div class="vertical-menu col-sm-4">
+        <a href="#" id="home" ><i class="glyphicon glyphicon-home"></i>&ensp;Trang chủ</a>
+        <a href="/quanlytaikhoan" id="TaiKhoan"  ><i class="glyphicon glyphicon-user"></i>&ensp;Quản lý tài khoản</a>
+        <a href="/quanlydonhang" id="DonHang" class="active" ><i class="glyphicon glyphicon-book"></i>&ensp;Quản lý đơn hàng</a>
+        <a href="/quanlythongtin" id="ThongTin" ><i class="glyphicon glyphicon-tasks"></i>&ensp;Quản lý thông tin</a>
+        <a href="/quanlysanpham" id="SanPham" ><i class="glyphicon glyphicon-sunglasses"></i>&ensp;Quản lý sản phẩm</a>
+    </div>
+</div>
+
+<div style="margin-left: 300px;">
+    <div class="col-md-12" style="float: right;">
+        <div class="col-md-6"   style="padding-left:0" >
+            <div class="form-group col-md-9"  style="padding-left:0">
+                <input type="text"  placeholder="Tim Kiếm" class="form-control">
+            </div>
+            <button class="btn btn-success" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+        </div>
+        <div class="col-md-6">
+            <div style="float: right">
+                <a href="/adddonhang"><button type="button" class="btn btn-success">Add</button> </a>
+                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-primary">Edit</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12">
+        <table class="col-md-12  text-center" border="1">
+            <tr>
+                <th></th>
+                <th>STT</th>
+                <th>Tài khoản</th>
+                <th>Ngày mua hàng</th>
+                <th>Sản phẩm</th>
+                <th>Thanh toán </th>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>Griffin</td>
+                <td>2/11/2018</td>
+                <td>Áo thun</td>
+                <td>150.000d</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>2</td>
+                <td>1234d</td>
+                <td>2/11/2018</td>
+                <td>Quần dài</td>
+                <td>210.000d</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>3</td>
+                <td>Swanson</td>
+                <td>2/11/2018</td>
+                <td>Đồng hồ</td>
+                <td>120.000d</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>4</td>
+                <td>Brown</td>
+                <td>2/11/2018</td>
+                <td>Áo khoác</td>
+                <td>60.000d</td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <div class="col-md-6" style="color:black">
+        <nav aria-label="...">
+            <ul class="pagination" style="color:black;background-color : #A9A9A9">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item active " ><a class="page-link" href="#">1</a></li>
+                <li class="page-item ">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item" ><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function(){
+        $("#home").click(function(){
+            $("#temp").text($(this).text());
+        });
+        $("#TaiKhoan").click(function(){
+            $("#temp").text($(this).text());
+        });
+        $("#DonHang").click(function(){
+            $("#temp").text($(this).text());
+        });
+        $("#ThongTin").click(function(){
+            $("#temp").text($(this).text());
+        });
+        $("#SanPham").click(function(){
+            $("#temp").text($(this).text());
+        });
+    })
+</script>
+</body>
+</html>

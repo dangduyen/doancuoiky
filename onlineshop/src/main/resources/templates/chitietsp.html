@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chi tiết áo 1</title>
+
+    <script src="assets/jquery/jquery.3.2.1.js "></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+    <script src="assets/jquery/jsTrangCon.js"></script>
+    <script src="assets/jquery/trangcon.js"></script>
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/bootstrap/js/parallax.min.js"></script>
+</head>
+<body>
+<div class="body parallax-window" data-parallax="scroll" data-image-src="image/hinh.png">
+    <!--thanh đăng nhập-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-shop-info">
+                <ul class="list-unstyled list-inline">
+                    <li><i class="fa fa-phone"></i><span>+039 438 1694</span></li>
+                    <li><i class="fa fa-envelope-o"></i><span> thiduyen.dang.98@gmail.com</span></li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-nav">
+                <ul class="list-unstyled list-inline pull-right">
+                    <li><a href="/login" style="color:orangered">Đăng nhập</a></li>
+                    <li><a href="/register"style="color:orangered">Đăng ký</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--thanh logo-->
+    <div id="header">
+        <div class="row" style="margin-right: 0px !important;">
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
+                <div class="text" style="text-align: center">
+                    <input type="search" placeholder="Nhập sản phẩm bạn muốn tìm" style="width: 250px;height: 30px; border: 2px solid #A9A9A9;border-radius: 12px;">
+                    <button class="btn btn-danger" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <div class="logo" style="text-align: center">
+                    <img src="image/logoabc.png" width="120" height="100" >
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12" style="text-align: center;">
+                <a href="/cart">
+                    <button class="btn btn-success btn-giohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--thanh trang chủ-->
+    <nav class="navbar navbar-inverse" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Beauty 2D</a>
+                    </div>
+                </div>
+                <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12" >
+                    <ul class="nav navbar-nav" style="font-size: 18px; ">
+                        <li class="active"><a href="/">Trang chủ</a></li>
+                        <li><a href="/product">Sản phẩm</a></li>
+                        <li><a href="/care">Chăm sóc khách hàng</a></li>
+                        <li><a href="/contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="chitiet">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                <img src="image/sanpham/ao/ao1.PNG" alt="" style="width: 100%; height: 370px;">
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="background-color: rgb(241, 235, 235)">
+                <div class="information">
+                    <div>
+                        <p class="title">Áo sơ mi kiểu tay hoa SSN1 (The Cosmo Turtleneck Dress (Beige))</p>
+                        <br/>
+                        <p style="font-size: 15px;color: chocolate"> Nhà thiết kế EDCOM</p>
+                        <p style="color:cadetblue">5 sao đánh giá | 48 câu hỏi đã trả lời </p>
+                        <p style="color:cadetblue">Thương hiệu: EDCOM - Thương hiệu thời trang đã được đánh giá</p>
+                    </div>
+                    <div>
+                        <div class="sub-info">Thông tin kèm theo</div>
+                        <div>
+                            <ul class="service">
+                                <li>Chất cotton dày dặn vừa phải, không quá dày nhưng cũng không quá mỏng, phù hợp với thời tiết se lạnh</li>
+                                <li>Bảng màu rất dễ phối đồ và không kén dáng.</li>
+                                <li>Đường may tinh tế, tỉ mỉ</li>
+                                <li>Chất liệu 100% Polyester</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                <div class="price">
+                    <p class="title" style="padding-top: 15px; padding-bottom: 15px;">THÔNG TIN THANH TOÁN</p>
+                    <div>
+                        <p style="color: blueviolet;font-size: 25px;">139.000<small>đ</small></p>
+                        <small><del>199.000đ</del>    -15%</small>
+                    </div>
+                    <div>
+                        <hr>
+                        <p><i class="fa fa-truck" aria-hidden="true"></i> Giao hàng tiêu chuẩn <b>  10.000đ</b></p>
+                        <p style="font-size: 12px">Nhận hàng trong khoảng từ 2-4 ngày </p>
+                        <p><i class="fa fa-cc-mastercard" aria-hidden="true"></i> Thanh toán khi nhận hàng</p>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <p style="font-size: 10px; text-align: left; padding-left: 14px; padding-bottom:2px;">Số lượng:</p>
+                        <div class="col-md-6 col-md-6 col-sm-12 col-xs-12">
+                            <div>
+                                <button class="sub-btn" id="sub" onclick="giamsoluong();">-</button>
+                                <input type="text" id="sum" style="width: 30px; text-align: center" value="1" max="100" min="1" />
+                                <button class="add-btn" id="add" onclick="tangsoluong();">+</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-6 col-sm-12 col-xs-12">
+                            <button class="btn-warning" style="font-size: 20px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i><a href="/cart">Mua</a> </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
+                <div style="font-size: 15px; color: maroon; background-color: whitesmoke">
+                    <div class="tab">
+                        <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'GTS')">GIỚI THIỆU SẢN PHẨM</button>
+                        <button class="tablinks" onclick="openTab(event, 'TTCT')">THÔNG TIN CHI TIẾT</button>
+                    </div>
+                    <div id="GTS" class="tabcontent">
+                        <p class="describe">
+                            Một chiếc áo đẹp được tôn vinh khi chúng ta kết hợp với những bộ trang phục phù hợp. Áo sơ mi nữ ngày càng phổ biến và được
+                            ưu chuộng nhất. Là một người phụ nữ, việc có trong tủ đồ của mình những sản phẩm như vậy là hoàn toàn phù hợp.  Vậy tại sao
+                            áo sơ mi đơn giản mà lại nhận được sự ưu ái lớn đến vậy? Có lẽ một phân là vì kiểu đơn giản mà chúng có thể phối với nhiều
+                            loại quần áo khác nhau. Áo sơ mi và quần jeans có lẽ là cặp đôi được yêu thích nhất. Mỗi khi đi chơi hay dạo phố, đây là set
+                            đồ được nhiều người nghĩ đến đầu tiên. Hay mặc chung áo sơ mi với chân váy, đây là gợi ý được nhiều cô gái trẻ lựa chọn.
+                            Thêm một cách phối đang làm mưa làm gió trong thời gian gần đây chính là áo sơ mi và quần short màu sắc.
+                        </p>
+                    </div>
+                    <div id="TTCT" class="tabcontent">
+                        <div class="describe">
+                            <p> Thương hiệu: EDCOM</p>
+                            <p> Xu Hướng Nữ: Thời trang dạo phố,Thời trang học đường,Đơn giản,Hàn Quốc,Thường ngày</p>
+                            <p> Chất liệu vải: Poly cotton</p>
+                            <p> Kiểu cổ áo sơ mi: Cardigan Cổ tròn</p>
+                            <p> Tay áo: Short Sleeve</p>
+                            <p> Mẫu/ Chi Tiết: Graphic</p>
+                            <p> SKU: EV589FAAA4NC8QVNAMZ-26607743</p>
+                            <p> Bộ sản phẩm bao gồm: 1 sản phẩm</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+    </div>
+    <br>
+    <!--sản phẩm new chi tiết-->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 col-md-10 col-sm-12 col-xs-12">
+            <div class="content-horizontal">
+                <div class="title-type" >
+                    <span style="color: red">SẢN PHẨM CÙNG LOẠI</span>
+                </div>
+                <div class="type-horizontal">
+                    <div class="row">
+                        <div class="col-md-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="thumbnail anh" >
+                                <a href="#">
+                                    <img src="image/spnew/giay.PNG" width="100%">
+                                    <div class="caption">Giày cao gót đỏ</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="thumbnail anh">
+                                <a href="#">
+                                    <img src="image/spnew/vong.PNG" width="100%">
+                                    <div class="caption">Vòng tay cao cấp</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="thumbnail anh" >
+                                <a href="#">
+                                    <img src="image/spnew/quan.PNG" width="75%">
+                                    <div class="caption">Quần Jean nữ cá tính</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="thumbnail anh" >
+                                <a href="#">
+                                    <img src="image/spnew/nhan.jpg" width="100%">
+                                    <div class="caption">Khuyên tai cá tính</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <!--footer-->
+
+    <div id="footer">
+        <div class="row">
+            <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
+                <p style="color: white">CÔNG TY TNHH BEAUTY</p>
+                <p style="color: white">Email: thiduyen.dang.98@gmail.com</p>
+                <p style="color: white">Hotline: 01684348350</p>
+                <p style="color: white">Copyright © 2013, Beauty Shop</p>
+                <p>Phát triển bởi Đặng Thị Duyên - Phan Thị Thùy Dương</p>
+            </div>
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                <div>
+                    <span style="border-bottom: 1px solid gray;margin-top:
+                            10px;font-size: 25px;color:black;margin-left: 20px;">Kết nối với chúng tôi</span>
+                </div>
+                <br>
+                <ul class="ketnoi ">
+                    <li>
+                        <a href="https://www.facebook.com/profile.php?id=100007916340603"><img class="icon" src="image/logo/facebook.png" style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/discover"><img class="icon" src="image/logo/google-plus.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/"><img class="icon" src="image/logo/instagram.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/"><img class="icon" src="image/logo/linkedin.png" alt=""style="width: 10%;"></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/?lang=vi"><img class="icon" src="image/logo/twitter.png" alt=""style="width: 10%;"></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    // khai bao su dung Jquery
+    $(document).ready(function() {
+        // Su kien scoll cua window
+
+        $(window).scroll(function() {
+            // neu tao do scroll hien tai >50px
+            if ($(window).scrollTop() >= 50) {
+                // chinh css margin top = 0
+                $('nav.navbar').css("margin-top", "0px");
+                // add them class cau hinh fixed thanh menu
+                $('nav.navbar').addClass("navbar-fixed-top");
+            } else {
+                $('nav.navbar').css("margin-top", "5px");
+                $('nav.navbar').removeClass("navbar-fixed-top");
+            }
+        })
+    })
+</script>
+</body>
+</html>

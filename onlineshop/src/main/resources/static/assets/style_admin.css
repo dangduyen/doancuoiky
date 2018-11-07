@@ -1,0 +1,211 @@
+
+.row{
+    margin-right: 0px !important;
+}
+#header {
+    width: 100%;
+    background-color:whitesmoke;
+    margin-right: 50px;
+    height: 100px;
+}
+#container{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.text {
+    margin-top: 20px;
+}
+
+.btn-giohang {
+    font-size: 20px;
+    margin-top: 25px;
+}
+
+.menu-doc {
+    width: 35%;
+    float: left;
+}
+
+.menu-doc ul li {
+    line-height: 25px;
+    padding-left: 10px;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+#footer {
+    background-color: darkgray;
+}
+
+.ketnoi {
+    list-style-type: none;
+}
+
+.ketnoi li {
+    display: inline;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.gioithieu {
+    color: cadetblue;
+    font-size: 20px;
+}
+
+nav .container-fluid .navbar-nav li a:hover {
+    background-color: darkgray;
+}
+
+.anh {
+    transition: transform 0.5s;
+}
+
+.anh:hover {
+    opacity: 0.4;
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.icon:hover{
+    opacity: 0.4;
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.caption {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.gia {
+    text-align: center;
+}
+
+.menu {
+    border-style: dashed;
+}
+
+.button {
+    border: 0;
+    padding: 10px 0;
+    font-size: 25 px;
+    font-weight: 800;
+    font-style: normal;
+    color: #ffffff;
+}
+
+.button-block {
+    display: block;
+    width: 100%;
+}
+
+.dangnhap {
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid;
+    border-radius: 3px;
+}
+
+.facebook {
+    background: #3366CC;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid;
+    border-radius: 8px;
+}
+
+.google {
+    background: #CC3333;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid;
+    border-radius: 8px;
+}
+
+.buttonapdung {
+    border: 0;
+    padding: 10px 0;
+    font-size: 25 px;
+    font-weight: 5;
+    font-style: normal;
+    color: #ffffff;
+}
+.sidebar {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    font-family: "Lato", sans-serif;
+}
+
+.sidebar a:hover {
+    font-family: "Lato", sans-serif;
+    color: #f1f1f1;
+}
+
+.main {
+    font-family: "Lato", sans-serif;
+    margin-left: 160px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+.vertical-menu {
+    width: 300px;
+}
+
+.vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    margin-left: 10px;
+    text-align: Left;
+    font-size: 20px;
+}
+
+.vertical-menu a:hover {
+    background-color:white;
+}
+
+.vertical-menu a.active {
+    background-color: black;
+    color: white;
+}
+.material-icons {
+    vertical-align:-14%
+}
+table {
+    border-collapse: collapse;
+    width: 60%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}

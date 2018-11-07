@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Liên hệ</title>
+    <title>Thanh toán</title>
 
     <script src="assets/jquery/jquery.3.2.1.js "></script>
     <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+    <script src="assets/jquery/jsTrangCon.js"></script>
+    <script src="assets/jquery/trangcon.js"></script>
 
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
@@ -49,9 +51,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12" style="text-align: center;">
-                <a href="/cart">
-                    <button class="btn btn-success btn-giohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</button>
-                </a>
+                <button class="btn btn-success btn-giohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</button>
             </div>
         </div>
     </div>
@@ -69,47 +69,78 @@
                         <li><a href="/">Trang chủ</a></li>
                         <li><a href="/product">Sản phẩm</a></li>
                         <li><a href="/care">Chăm sóc khách hàng</a></li>
-                        <li  class="active"><a href="/contact">Liên hệ</a></li>
+                        <li><a href="/contact">Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
-    <div style="background-color: rgb(245, 229, 229); font-size: 15px">
+    <form style="background-color:rgb(247, 251, 255) ;padding:30px 20px;opacity: 0.8;">
         <div class="row">
-            <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12">
-                <img src="image/contact-icon-1.png" alt="" width="100%"; style="margin-top: 100px;">
+            <div class="col-md-7">
+                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label for="" class="control-label">Name: </label></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                        <br> <br> <br>
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label for="" class="control-label">Numberphone: </label></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
+                        <br> <br> <br>
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label for="" class="control-label">Shipping address </label></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                        <br> <br> <br>
+                        <h3>Chọn hình thức thanh toán</h3>
+                        <div class="row">
+                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 " >
+                                <button class=" ">
+                                    <a href="#">
+                                        <i class="fa fa-money" aria-hidden="true"></i> <br> <strong>Thanh toán khi nhận hàng</strong>
+                                    </a>
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 " >
+                                <button class=" ">
+                                    <a href="#">
+                                        <i class="fa fa-credit-card" aria-hidden="true"></i> <br> <strong>Thẻ tín dụng/Thẻ ghi nợ</strong>
+                                    </a>
+                                </button>
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" >
+                                <button class=" ">
+                                    <a href="#">
+                                        <i class="fa fa-cc-discover" aria-hidden="true"></i> <br> <strong>Thẻ ATM/ MasterCard nội địa</strong>
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
             </div>
-            <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-                <div>
-                    <h3> <strong>Về chúng tôi</strong></h3>
-                    <p>Mua sắm online đang dần trở thành xu hướng của cuộc sống hiện đại.Ngày nay, với sự phát triển ngày càng
-                        vượt bậc của các thiết bị thông minh và những nền tảng mua sắm trực tuyến hữu ích, tiện lợi, việc ngồi
-                        ngay tại căn phòng của bạn để mua sắm đã không còn bất cứ khó khăn nào nữa. Thời trang luôn luôn đóng
-                        một vai trò vô cùng quan trọng của đời sống của chúng ta, hơn cả những gì bạn mặc lên người, đó còn là
-                        phong cách sống, là màu sắc riêng và là thẩm mỹ của bạn. Với ưu điểm là sự đa dạng trong lựa chọn và sự
-                        tiết kiệm giá thành nhờ giảm thiểu chi phí xây dựng các cửa hàng và phí quản lý, mọi người bắt đầu thay
-                        thế việc mua sắm thông thường bằng những trang web thời trang online.</p><br>
-                    <p>Hãy tham gia cùng chúng tôi trong ngôi nhà mới - BEAUTY, tiếp tục mua sắm theo phong cách yêu thích của bạn và
-                        cùng đồng hành với chúng tôi để có trải nghiệm mua sắm được mở rộng hơn.</p>
-                </div>
-                <div>
-                    <h3> <strong>Hotline</strong></h3>
-                    <li><i class="fa fa-calendar-minus-o" aria-hidden="true"></i>
-                        Thời gian hoạt động: 8h-22h</li>
-                    <li><i class="fa fa-phone-square" aria-hidden="true"></i>+039 438 1694</li>
-                </div>
-                <div>
-                    <h3> <strong>Liên hệ hợp tác</strong></h3>
-                    <p>123 Đinh Tiên Hoàng, Tân Bình, Thành phố Hồ Chí Minh</p>
-                </div>
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                <form action="" >
+                    <div class="price">
+                        <p class="title" style="padding-top: 15px; padding-bottom: 15px;">THÔNG TIN THANH TOÁN</p>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> Hồ Chí Minh, Quận 1, Phường Phạm Ngũ Lão</p>
+                        <hr>
+                        <p><h3></i> Thông tin đơn hàng <b > </b></h3></p>
+                        <p> <h5>Tạm tính:&emsp;&emsp;139.000đ</h5></p>
+                        <p><h5> Số lượng:&emsp;&emsp; 3</h5></p>
+                        <p> <h5> Phí giao hàng:&emsp;&emsp;miễn phí</h5> </p>
+                        <p>
+                        <h3>Tổng cộng: 421.000d</h3>
+                        </p>
+                        <br>
+                        <div style="text-align: center">
+                            <button id="btn-thanhtoan" style="font-size: 20px;background-color: orange;border:0"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Đặt hàng</button>
+                        </div>
+                        <br> <br>
+                    </div>
+                </form>
             </div>
-            <div class="col-md-1 col-lg-1 col-xs-12 col-sm-12"></div>
         </div>
-    </div>
-    <br>
-    <!--footer-->
-
+    </form>
     <div id="footer">
         <div class="row">
             <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
@@ -121,8 +152,8 @@
             </div>
             <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
                 <div>
-                        <span style="border-bottom: 1px solid gray;margin-top:
-                                10px;font-size: 25px;color:black;margin-left: 20px;">Kết nối với chúng tôi</span>
+                    <span style="border-bottom: 1px solid gray;margin-top:
+                            10px;font-size: 25px;color:black;margin-left: 20px;">Kết nối với chúng tôi</span>
                 </div>
                 <br>
                 <ul class="ketnoi ">
@@ -146,6 +177,7 @@
 
         </div>
     </div>
+
 </div>
 <script>
     // khai bao su dung Jquery
@@ -165,6 +197,9 @@
             }
         })
     })
+    $("#btn-thanhtoan").click(function() {
+        alert("Bạn đã đặt hàng thành công !");
+    });
 </script>
 </body>
 </html>

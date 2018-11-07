@@ -8,10 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vn.hcmute.onlineshop.entity.Account;
 import vn.hcmute.onlineshop.entity.Customer;
+import vn.hcmute.onlineshop.entity.ProductList;
 import vn.hcmute.onlineshop.exception.NotFoundException;
 import vn.hcmute.onlineshop.model.request.RegisterModel;
 import vn.hcmute.onlineshop.service.AccountService;
 import vn.hcmute.onlineshop.service.CustomerService;
+import vn.hcmute.onlineshop.service.ProductListService;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -19,6 +24,8 @@ public class UserController {
     private AccountService accountService;
     @Autowired
     private CustomerService customerService;
+    @Autowired
+    private ProductListService productListService;
 
     @Value("${login.error}")
     private String loginError;
@@ -37,10 +44,14 @@ public class UserController {
         model.addAttribute("account",account);
         return  "login";
     }
-
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "index";
+}
     @PostMapping("/login")
     public String login(Model model,
-                        @ModelAttribute("account") Account account){
+                        @ModelAttribute("account") Account account, HttpSession session){
         String username=account.getUsername();
         String password=account.getPassword();
         try{
@@ -50,6 +61,7 @@ public class UserController {
             model.addAttribute("loginError",loginError);
             return "login";
         }
+        session.setAttribute("SESSION_FULL_NAME",account.getUsername());
         return "redirect:/";
     }
     @GetMapping("/register")
@@ -92,7 +104,13 @@ public class UserController {
         return "care";
     }
     @GetMapping("/product")
-    public String product(){
+    public String product(Model model){
+        try {
+            List<ProductList> productLists = productListService.retrieveAllProductList();
+            model.addAttribute("productList",productLists);
+        } catch (NotFoundException ex){
+            model.addAttribute("error",ex.getMessage());
+        }
         return "product";
     }
     @GetMapping("/chitietao")
@@ -102,5 +120,17 @@ public class UserController {
     @GetMapping("/contact")
     public String contact(){
         return "contact";
+    }
+    @GetMapping("/chitietsp")
+    public String chitietsp(){
+        return "chitietsp";
+    }
+    @GetMapping("/cart")
+    public String cart(){
+        return "cart";
+    }
+    @GetMapping("/buy")
+    public String buy(){
+        return "buy";
     }
 }

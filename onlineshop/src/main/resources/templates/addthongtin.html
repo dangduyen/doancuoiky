@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>addThongTin</title>
+
+    <script src="assets/jquery/jquery.3.2.1.js "></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/style_admin.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="assets/bootstrap/js/parallax.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<div id="header">
+    <div class="row">
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <div class="logo">
+                <img src="image/logoabc.png" width="120" height="100" style="margin-left: 140px">
+            </div>
+        </div>
+
+    </div>
+</div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">Beauty 2D</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#" style="margin-left: 150px;font-size: 18px ">Quản lý > <i id="temp">Quản lí thông tin</i><i>>Thêm
+                thông tin</i></a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" style="margin-left: 300px" href="#">Admin <span
+                        class="caret"></span></a>
+                <ul class="dropdown-menu" style="margin-left: 300px">
+                    <li><a href="#">Thông tin</a></li>
+                    <li><a href="#">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div style="max-width:300px; float: left; margin-right: 20px;">
+    <div class="vertical-menu col-sm-4">
+        <a href="Admin.html" id="home"><i class="glyphicon glyphicon-home"></i>&ensp;Trang chủ</a>
+        <a href="/quanlytaikhoan" id="TaiKhoan" ><i class="glyphicon glyphicon-user"></i>&ensp;Quản lí tài khoản</a>
+        <a href="/quanlydonhang" id="DonHang"><i class="glyphicon glyphicon-book"></i>&ensp;Quản lí đơn hàng</a>
+        <a href="/quanlythongtin" id="ThongTin" class="active"><i class="glyphicon glyphicon-tasks"></i>&ensp;Quản lí thông tin</a>
+        <a href="/quanlysanpham" id="SanPham"><i class="glyphicon glyphicon-sunglasses"></i>&ensp;Quản lí sản phẩm</a>
+        <br>
+    </div>
+</div>
+<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+    <form style="background-color: #EEE ;padding:30px 20px;opacity: 0.8;">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
+                    <div class="col-md-6 col-lg-3 col-xs-12 col-sm-9"><label for="" class="control-label">STT: </label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                    <br> <br>
+                    <div class="col-md-6 col-lg-3 col-xs-12 col-sm-9"><label for="" class="control-label">Tên Sự Kiện: </label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="email" class="form-control" required=true></div>
+                    <br> <br>
+                    <div class="col-md-6 col-lg-3 col-xs-12 col-sm-9"><label for="" class="control-label">TG Bắt đầu: </label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                    <br> <br>
+                    <div class="col-md-6 col-lg-3 col-xs-12 col-sm-9"><label for="" class="control-label">TG kết thúc:</label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
+                    <br> <br>
+                    <div class="col-md-6 col-lg-3 col-xs-12 col-sm-9"><label for="" class="control-label">Nội dung:</label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
+                    <br> <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div style="float: right">
+                <button type="button" class="btn btn-success">Add</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#home").click(function () {
+            $("#temp").text($(this).text());
+        });
+        $("#TaiKhoan").click(function () {
+            $("#temp").text($(this).text());
+        });
+        $("#DonHang").click(function () {
+            $("#temp").text($(this).text());
+        });
+        $("#ThongTin").click(function () {
+            $("#temp").text($(this).text());
+        });
+        $("#SanPham").click(function () {
+            $("#temp").text($(this).text());
+        });
+    })
+</script>
+
+</body>
+
+</html>
