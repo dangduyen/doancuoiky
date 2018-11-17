@@ -55,7 +55,7 @@
 </nav>
 <div style="max-width:300px; float: left; margin-right: 20px;">
     <div class="vertical-menu col-sm-4">
-        <a href="" id="home"><i class="glyphicon glyphicon-home"></i>&ensp;Trang chủ</a>
+        <a href="/admin" id="home"><i class="glyphicon glyphicon-home"></i>&ensp;Trang chủ</a>
         <a href="/quanlytaikhoan" id="TaiKhoan" ><i class="glyphicon glyphicon-user"></i>&ensp;Quản lí tài khoản</a>
         <a href="/quanlydonhang" id="DonHang"><i class="glyphicon glyphicon-book"></i>&ensp;Quản lí đơn hàng</a>
         <a href="/quanlythongtin" id="ThongTin"><i class="glyphicon glyphicon-tasks"></i>&ensp;Quản lí thông tin</a>
@@ -74,28 +74,27 @@
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Tên SM: </label></div>
-                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Tên sản phẩm: </label></div>
+                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{name}" required=true></div>
                         <br> <br>
-                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Giá nhập: </label></div>
-                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="email" class="form-control" required=true></div>
-                        <br> <br>
-                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Giá bán ra </label></div>
-                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
-                        <br> <br>
-                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">CTKM: </label></div>
-                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
-                        <br> <br>
-                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Loại SP:</label></div>
-                        <div class="col-md-6 col-lg-9 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
+                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Giá: </label></div>
+                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{price}" required=true></div>
                         <br> <br>
                         <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Số lượng: </label></div>
-                        <div class="col-md-6 col-lg-9 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
+                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{quantity}" required=true></div>
                         <br> <br>
+                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Trạng thái: </label></div>
+                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{status}" required=true></div>
+                        <br> <br>
+                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Loại SP:</label></div>
+                        <div class="col-md-6 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                        <br> <br>
+
                     </div>
                     <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
                         <div style="float: right">
                             <button type="button" class="btn btn-success">Add</button>
+                            <button type="button" class="btn btn-default">Cancel</button>
                         </div>
                     </div>
                 </div>

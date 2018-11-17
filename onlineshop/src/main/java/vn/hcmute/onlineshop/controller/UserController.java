@@ -1,6 +1,6 @@
 package vn.hcmute.onlineshop.controller;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -105,12 +105,12 @@ public class UserController {
     }
     @GetMapping("/product")
     public String product(Model model){
-        try {
-            List<ProductList> productLists = productListService.retrieveAllProductList();
-            model.addAttribute("productList",productLists);
-        } catch (NotFoundException ex){
-            model.addAttribute("error",ex.getMessage());
-        }
+//        try {
+//            List<ProductList> productLists = productListService.retrieveAllProductList();
+//            model.addAttribute("productList",productLists);
+//        } catch (NotFoundException ex){
+//            model.addAttribute("error",ex.getMessage());
+//        }
         return "product";
     }
     @GetMapping("/chitietao")

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+
+    <script src="assets/jquery/jquery.3.2.1.js "></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="assets/bootstrap/js/parallax.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-shop-info">
+            <ul class="list-unstyled list-inline">
+                <li><i class="fa fa-phone"></i><span>+039 438 1694</span></li>
+                <li><i class="fa fa-envelope-o"></i><span> thiduyen.dang.98@gmail.com</span></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div id="header">
+    <div class="row">
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <div class="logo">
+                <a href="/">
+                <img src="image/logoabc.png" width="120" height="100" style="margin-left: 140px"></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">Beauty 2D</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#" style="margin-left: 150px;font-size: 18px ">Quản lý </a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" style="margin-left: 300px" href="#">Admin <span
+                        class="caret"></span></a>
+                <ul class="dropdown-menu" style="margin-left: 300px">
+                    <li><a href="#">Thông tin</a></li>
+                    <li><a href="#">Đăng xuất</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+</div>
+<div class="row">
+    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+        <div style="max-width:300px; margin-right: 20px;">
+            <div class="vertical-menu col-sm-4">
+                <a href="/admin" id="home" class="active"><i class="glyphicon glyphicon-home"></i>&ensp;Trang chủ</a>
+                <a href="/quanlytaikhoan" id="TaiKhoan"   ><i class="glyphicon glyphicon-user"></i>&ensp;Quản lý tài khoản</a>
+                <a href="/quanlydonhang" id="DonHang" ><i class="glyphicon glyphicon-book"></i>&ensp;Quản lý đơn hàng</a>
+                <a href="/quanlythongtin" id="ThongTin" ><i class="glyphicon glyphicon-tasks"></i>&ensp;Quản lý thông tin</a>
+                <a href="/quanlysanpham" id="SanPham" ><i class="glyphicon glyphicon-sunglasses"></i>&ensp;Quản lý sản phẩm</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                <a href="/quanlytaikhoan">
+                    <img src="image/icon/group.png" alt=""> <br>
+                    <h3 ><strong>Quản lý tài khoản</strong></h3>
+                </a>
+            </div>
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                <a href="/quanlysanpham"  >
+                    <img src="image/icon/shopping-cart.png" alt=""> <br>
+                    <h3 ><strong>Quản lý sản phẩm</strong></h3>
+                </a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                <a href="/quanlydonhang"   >
+                    <img src="image/icon/ecommerce.png" alt=""> <br>
+                    <h3 ><strong>Quản lý đơn hàng</strong></h3>
+                </a>
+            </div>
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                <a href="/quanlythongtin" >
+                    <img src="image/icon/information.png" alt=""> <br>
+                    <h3 ><strong>Quản lý thông tin</strong></h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function(){
+        $("#home").click(function(){
+            $("#temp").text($(this).text());
+        });
+        $("#TaiKhoan").click(function(){
+            $("#temp").text($(this).text());
+        });
+        $("#DonHang").click(function(){
+            $("#temp").text($(this).text());
+        });
+        $("#ThongTin").click(function(){
+            $("#temp").text($(this).text());
+        });
+        $("#SanPham").click(function(){
+            $("#temp").text($(this).text());
+        });
+    })
+</script>
+</body>
+</html>
