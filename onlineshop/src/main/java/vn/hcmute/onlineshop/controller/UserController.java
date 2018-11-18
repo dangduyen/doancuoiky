@@ -8,15 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vn.hcmute.onlineshop.entity.Account;
 import vn.hcmute.onlineshop.entity.Customer;
-import vn.hcmute.onlineshop.entity.ProductList;
 import vn.hcmute.onlineshop.exception.NotFoundException;
 import vn.hcmute.onlineshop.model.request.RegisterModel;
 import vn.hcmute.onlineshop.service.AccountService;
 import vn.hcmute.onlineshop.service.CustomerService;
-import vn.hcmute.onlineshop.service.ProductListService;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 public class UserController {
@@ -24,8 +21,6 @@ public class UserController {
     private AccountService accountService;
     @Autowired
     private CustomerService customerService;
-    @Autowired
-    private ProductListService productListService;
 
     @Value("${login.error}")
     private String loginError;

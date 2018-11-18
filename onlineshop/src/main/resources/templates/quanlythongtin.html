@@ -55,7 +55,7 @@
             <a class="navbar-brand" >Beauty 2D</a>
         </div>
         <ul class="nav navbar-nav" >
-            <li><a href="#" style="margin-left: 150px;font-size: 18px ">Manager  > <i id="temp">Quản lý thông tin</i></a></li>
+            <li><a href="#" style="margin-left: 150px;font-size: 18px ">Quản lý  > <i id="temp">Quản lý thông tin</i></a></li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" style="margin-left: 300px" href="#">Admin <span class="caret"></span></a>
                 <ul class="dropdown-menu" style="margin-left: 300px">
@@ -81,69 +81,43 @@
     <div class="col-md-12" style="float: right;">
         <div class="col-md-6"   style="padding-left:0" >
             <div class="form-group col-md-9"  style="padding-left:0">
-                <input type="text"  placeholder="Tim Kiếm" class="form-control">
+                <input type="text" id="txt-search"  placeholder="Tim Kiếm" class="form-control">
             </div>
-            <button class="btn btn-success" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+            <button class="btn btn-success" style="font-size: 15px" id="btn-seach" type="button" onclick="filter()">
+                <i class="fa fa-search" aria-hidden="true"></i> Lọc</button>
         </div>
         <div class="col-md-6">
             <div style="float: right">
                 <a href="/addthongtin"><button type="button" class="btn btn-success">Add</button></a>
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-primary">Edit</button>
             </div>
         </div>
     </div>
     <div>
-        <table class="col-md-12  text-center">
-            <table class="col-md-12  text-center" border="1">
+        <table class="col-md-12"  th:fragment="table-result" id="table-result">
+            <table class="table table-bordered table-hover table-striped table-responsive" >
+                <thead>
                 <tr>
                     <th></th>
-                    <th>STT</th>
                     <th>Tên Sự Kiện</th>
+                    <th>Nội dung</th>
                     <th>Thời gian bắt đầu</th>
                     <th>Thời gian kết thúc</th>
-                    <th>Nội dung</th>
+                    <th></th>
                 </tr>
-                <tr>
+                </thead>
+                <tbody id="tbody_events">
+                <tr th:each="item : ${events}">
                     <td><input type="checkbox"></td>
-                    <td>1</td>
-                    <td>Tri ân khách hàng</td>
-                    <td>1/9/2018&ensp;</td>
-                    <td>30/11/2018&ensp;</td>
-                    <td>Giảm 20% đối với tài khoản có hóa đơn trên 500.000d</td>
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.content}"></td>
+                    <td th:text="${item.startDate}"></td>
+                    <td th:text="${item.endDate}"></td>
+                    <td>
+                        <button class="btn btn-warning">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>2</td>
-                    <td>Ngày đầu tuần</td>
-                    <td>1/9/2018&ensp;</td>
-                    <td>31/13/2018&ensp;</td>
-                    <td>Giảm 10% đối với tài khoản mua sắm trong thời gian trên</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>3</td>
-                    <td>Ngày phụ nữ Việt Nam</td>
-                    <td>1/9/2018&ensp;</td>
-                    <td>31/13/2018&ensp;</td>
-                    <td>Giảm 10% đối với tài khoản mua sắm trong thời gian trên</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>4</td>
-                    <td>Thứ tư vàng</td>
-                    <td>1/9/2018&ensp;</td>
-                    <td>31/13/2018&ensp;</td>
-                    <td>Giảm 10% đối với tài khoản mua sắm trong thời gian trên</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>5</td>
-                    <td>Thứ sáu </td>
-                    <td>1/9/2018&ensp;&ensp;&ensp;</td>
-                    <td>31/13/2018&ensp;&ensp;&ensp;</td>
-                    <td>Giảm 10% đối với tài khoản mua sắm trong thời gian trên</td>
-                </tr>
+                </tbody>
             </table>
     </table>
         <div class="col-md-6" style="color:black">
@@ -153,10 +127,6 @@
                         <a class="page-link" href="#" tabindex="-1">Previous</a>
                     </li>
                     <li class="page-item active " ><a class="page-link" href="#">1</a></li>
-                    <li class="page-item ">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item" ><a class="page-link" href="#">3</a></li>
                     <li class="page-item">
                         <a class="page-link" href="#">Next</a>
                     </li>
@@ -184,6 +154,32 @@
             $("#temp").text($(this).text());
         });
     })
+    function filter() {
+        var $keyword=$('#txt-search').val();
+        console.log($keyword);
+        $.ajax({
+            method: 'POST',
+            data: {keyword: $keyword},
+            dataType: 'json',
+            url: "/quanlythongtin",
+            success: function (res) {
+                console.log(res);
+                var content="";
+                $.each(res, function (index, value) {
+                    content += "<tr>"
+                        +"<td><input type='checkbox'></td>"
+                        +"<td>"+value.name+"</td>"
+                        +"<td>"+value.content+"</td>"
+                        +"<td>"+value.startDate+"</td>"
+                        +"<td>"+value.endDate+"</td>"
+                        +"<td> <button class=\"btn btn-warning\">Sửa</button>\n" +
+                        "                        <button class=\"btn btn-danger\">Xóa</button></td>"
+                        +"</tr>>"
+                })
+                $('#tbody_events').html(content)
+            }
+        })
+    }
 </script>
 </body>
 </html>

@@ -82,60 +82,45 @@
     <div class="col-md-12" style="float: right;">
         <div class="col-md-6"   style="padding-left:0" >
             <div class="form-group col-md-9"  style="padding-left:0">
-                <input type="text"  placeholder="Tim Kiếm" class="form-control">
+                <input type="text" id="txt-search"  placeholder="Tim Kiếm" class="form-control">
             </div>
-            <button class="btn btn-success" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
-        </div>
-        <div class="col-md-6">
-            <div style="float: right">
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-primary">Edit</button>
-            </div>
+            <button class="btn btn-success" style="font-size: 15px" id="btn-seach" type="button" onclick="filter()">
+                <i class="fa fa-search" aria-hidden="true"></i> Lọc</button>
         </div>
     </div>
 
 
-    <div class="col-md-12">
-        <table border="1">
+    <div class="col-md-12" th:fragment="table-result" id="table-result">
+        <table class="table table-bordered table-hover table-striped table-responsive">
+            <thead>
             <tr>
                 <th></th>
                 <th>User name</th>
                 <th>Password</th>
-                <th>Numberphone</th>
-                <th>Admin</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Thao tác</th>
             </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>09229191</td>
-                <td><i class=checkbox><label><input type="checkbox" value=""></label></i></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>Lois</td>
-                <td>1234d</td>
-                <td>0123299</td>
-                <td><i class=checkbox><label><input type="checkbox" value=""></label></i></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>Joe</td>
-                <td>Swanson</td>
-                <td>01820192</td>
-                <td><i class=checkbox><label><input type="checkbox" value=""></label></i></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>Cleveland</td>
-                <td>Brown</td>
-                <td>01929391</td>
-                <td><i class=checkbox><label><input type="checkbox" value=""></label></i></td>
-            </tr>
+            </thead>
+            <tbody id="tbody-account">
+                <tr th:each="item : ${accounts}">
+                    <td><input type="checkbox"></td>
+                    <td th:text="${item.username}"></td>
+                    <td th:text="${item.password}"></td>
+                    <td th:text="${item.customer.name}"></td>
+                    <td th:text="${item.customer.phone}"></td>
+                    <td th:text="${item.customer.email}"></td>
+                    <td>
+                        <button class="btn btn-info">Phân quyền</button>
+                        <button class="btn btn-warning">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
+                </tr>
+
+            </tbody>
         </table>
     </div>
-
-
 
     <div class="col-md-6" style="color:black">
         <nav aria-label="...">
@@ -144,10 +129,6 @@
                     <a class="page-link" href="#" tabindex="-1">Previous</a>
                 </li>
                 <li class="page-item active " ><a class="page-link" href="#">1</a></li>
-                <li class="page-item ">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item" ><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
                     <a class="page-link" href="#">Next</a>
                 </li>
@@ -173,7 +154,35 @@
         $("#SanPham").click(function(){
             $("#temp").text($(this).text());
         });
-    })
+    });
+    function filter() {
+        var $keyword = $('#txt-search').val();
+        console.log($keyword);
+        $.ajax({
+            method : 'POST',
+            data : {keyword : $keyword},
+            dataType : 'json',
+            url : "/quanlytaikhoan",
+            success : function(res) {
+                console.log(res);
+                var content = "";
+                $.each(res, function(index, value) {
+                    content += "<tr>"
+                        +"<td><input type='checkbox'></td>"
+                        +"<td>"+value.username+"</td>"
+                        +"<td>"+value.password+"</td>"
+                        +"<td>"+value.name+"</td>"
+                        +"<td>"+value.phone+"</td>"
+                        +"<td> <button class=\"btn btn-info\">Phân quyền</button>\n" +
+                        "                        <button class=\"btn btn-warning\">Sửa</button>\n" +
+                        "                        <button class=\"btn btn-danger\">Xóa</button></td>"
+                        +"</tr>>"
+                });
+                $('#tbody-account').html(content);
+            }
+        })
+    }
+
 </script>
 </body>
 </html>

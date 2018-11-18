@@ -70,26 +70,33 @@
         <img src="image/spnew/vong.PNG" width="100%" >
     </div>
     <div  class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
-        <form style=" padding:30px 20px;opacity: 0.8;">
+        <form style=" padding:30px 20px;opacity: 0.8;" th:object="${product}">
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Tên sản phẩm: </label></div>
-                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{name}" required=true></div>
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Tên sản phẩm: </label></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{name}" required=true></div>
                         <br> <br>
-                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Giá: </label></div>
-                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{price}" required=true></div>
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Giá: </label></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{price}" required=true></div>
                         <br> <br>
-                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Số lượng: </label></div>
-                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{quantity}" required=true></div>
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label class="control-label">Số lượng: </label></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{quantity}" required=true></div>
                         <br> <br>
-                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Trạng thái: </label></div>
-                        <div class="col-md-8 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{status}" required=true></div>
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label class="control-label">Trạng thái: </label></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
+                            <select class="form-control" th:field="*{status}">
+                                <option th:value="1">Còn hàng</option>
+                                <option th:value="0">Hết hàng</option>
+                            </select>
+                        </div>
                         <br> <br>
-                        <div class="col-md-4 col-lg-3 col-xs-12 col-sm-12"><label for="" class="control-label">Loại SP:</label></div>
-                        <div class="col-md-6 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label class="control-label">Loại SP:</label></div>
+                        <div class="col-md-6 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
                         <br> <br>
-
+                        <div>
+                            <label class="btn btn-success">Chọn hình : <input type="file"></label>
+                        </div>
                     </div>
                     <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
                         <div style="float: right">
@@ -98,6 +105,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </form>
     </div>
 

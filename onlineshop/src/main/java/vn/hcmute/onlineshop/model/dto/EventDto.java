@@ -1,32 +1,20 @@
-package vn.hcmute.onlineshop.entity;
+package vn.hcmute.onlineshop.model.dto;
 
-import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-@Entity(name = "events")
-@NamedStoredProcedureQueries({
-        @NamedStoredProcedureQuery(
-                name = "Sp_GetEvents",
-                procedureName = "Sp_GetEvents",
-                resultClasses = Event.class,
-                parameters = {
-                        @StoredProcedureParameter(name="keyword", mode = ParameterMode.IN, type = String.class)
-                }
-        )
-})
-public class Event {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class EventDto implements Serializable {
     private long id;
     private String name;
     private String content;
     private Date startDate;
     private Date endDate;
 
-    public Event() {
+    public EventDto() {
     }
 
-    public Event(String name, String content, Date startDate, Date endDate) {
+    public EventDto(long id, String name, String content, Date startDate, Date endDate) {
+        this.id = id;
         this.name = name;
         this.content = content;
         this.startDate = startDate;

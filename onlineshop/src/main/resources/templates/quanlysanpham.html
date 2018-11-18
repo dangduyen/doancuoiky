@@ -82,104 +82,48 @@
     <div class="col-md-12" style="float: right;">
         <div class="col-md-6"   style="padding-left:0" >
             <div class="form-group col-md-9"  style="padding-left:0">
-                <input type="text"  placeholder="Tim Kiếm" class="form-control">
+                <input type="text" id="txt-search"  placeholder="Tim Kiếm" class="form-control">
             </div>
-            <button class="btn btn-success" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+            <button class="btn btn-success" style="font-size: 15px" id="btn-seach" type="button" onclick="filter()">
+                <i class="fa fa-search" aria-hidden="true"></i> Lọc</button>
+
         </div>
         <div class="col-md-6">
             <div style="float: right">
                 <a href="/addsanpham"><button type="button" class="btn btn-success">Add</button></a>
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-primary">Edit</button>
             </div>
         </div>
     </div>
 
 
-    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-        <table class="col-md-12  text-center">
-            <table class="col-md-12  text-center" border="1">
+    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12" th:fragment="table_result" id="table-result">
+        <table class="table table-bordered table-hover table-striped table-responsive">
+           <thead>
                 <tr>
                     <th></th>
-                    <th>STT</th>
                     <th>Tên sản phẩm</th>
-                    <th>Giá nhập vào</th>
-                    <th>Giá bán</th>
-                    <th>Chương trình khuyến mãi</th>
-                    <th>Loại sản phẩm</th>
+                    <th>Giá</th>
                     <th>Số lượng</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
                 </tr>
-                <tr>
+           </thead>
+            <tbody id="tbody_products">
+                <tr th:each="item:${products}">
                     <td><input type="checkbox"></td>
-                    <td>1</td>
-                    <td>Áo thun nam</td>
-                    <td>4$</td>
-                    <td>10$</td>
-                    <td>Tri ân khách hàng</td>
-                    <td>Áo nam</td>
-                    <td>305</td>
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.price}"></td>
+                    <td th:text="${item.quantity}"></td>
+                    <td>
+                        <span th:if="${item.status == true}">Còn hàng</span>
+                        <span th:if="${item.status == false}">Hết hàng</span>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning">Sửa</button>
+                        <button class="btn btn-danger">Xóa</button>
+                    </td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>2</td>
-                    <td>Áo thun nam</td>
-                    <td>4$</td>
-                    <td>10$</td>
-                    <td>Tri ân khách hàng</td>
-                    <td>Áo nam</td>
-                    <td>305</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>3</td>
-                    <td>Áo thun nam</td>
-                    <td>4$</td>
-                    <td>10$</td>
-                    <td>Tri ân khách hàng</td>
-                    <td>Áo nam</td>
-                    <td>305</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>4</td>
-                    <td>Áo thun nam</td>
-                    <td>4$</td>
-                    <td>10$</td>
-                    <td>Tri ân khách hàng</td>
-                    <td>Áo nam</td>
-                    <td>305</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>5</td>
-                    <td>Áo thun nam</td>
-                    <td>4$</td>
-                    <td>10$</td>
-                    <td>Tri ân khách hàng</td>
-                    <td>Áo nam</td>
-                    <td>305</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>6</td>
-                    <td>Áo thun nam</td>
-                    <td>4$</td>
-                    <td>10$</td>
-                    <td>Tri ân khách hàng</td>
-                    <td>Áo nam</td>
-                    <td>305</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>7</td>
-                    <td>Áo thun nam</td>
-                    <td>4$</td>
-                    <td>10$</td>
-                    <td>Tri ân khách hàng</td>
-                    <td>Áo nam</td>
-                    <td>305</td>
-                </tr>
-            </table>
+            </tbody>
         </table>
     </div>
 
@@ -192,10 +136,6 @@
                     <a class="page-link" href="#" tabindex="-1">Previous</a>
                 </li>
                 <li class="page-item active " ><a class="page-link" href="#">1</a></li>
-                <li class="page-item ">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item" ><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
                     <a class="page-link" href="#">Next</a>
                 </li>
@@ -222,6 +162,37 @@
             $("#temp").text($(this).text());
         });
     })
+    function filter() {
+        var $keyword=$('#txt-search').val();
+        $.ajax({
+            method : 'POST',
+            data : {keyword : $keyword},
+            dataType : 'json',
+            url: "/quanlysanpham",
+            success: function (res) {
+                console.log(res);
+                var content="";
+                $.each(res,function (index, value) {
+                    var trangThai = "";
+                    if(value.status == true){
+                        trangThai = "Còn hàng"
+                    } else {
+                        trangThai = "Hết hàng"
+                    }
+                    content += "<tr>"
+                        +"<td><input type='checkbox'></td>"
+                        +"<td>"+value.name+"</td>"
+                        +"<td>"+value.price+"</td>"
+                        +"<td>"+value.quantity+"</td>"
+                        +"<td>" + trangThai+ "</td>"
+                        +"<td> <button class=\"btn btn-warning\">Sửa</button>\n" +
+                        "                        <button class=\"btn btn-danger\">Xóa</button></td>"
+                        +"</tr>"
+                });
+                $('#tbody_products').html(content);
+            }
+        })
+    }
 </script>
 </body>
 </html>

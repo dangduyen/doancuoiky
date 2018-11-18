@@ -4,6 +4,16 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "products")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "Sp_GetProducts",
+                procedureName = "Sp_GetProducts",
+                resultClasses = Product.class,
+                parameters = {
+                        @StoredProcedureParameter(name="keyword", mode = ParameterMode.IN, type = String.class)
+                }
+        )
+})
 public class Product {
 
     @Id
@@ -20,8 +30,8 @@ public class Product {
     @OneToMany(mappedBy = "id.product")
     private  List<CartDetail> lstCartDetail;
 
-    @OneToMany(mappedBy = "id.product")
-    private  List<PromotionDetail> lstPromotionDetail;
+//    @OneToMany(mappedBy = "id.product")
+//    private  List<PromotionDetail> lstPromotionDetail;
 
     @ManyToMany(mappedBy = "lstProduct",fetch = FetchType.LAZY)
     private List<ProductList> lstProductList;
@@ -29,16 +39,26 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, boolean status, double price, int quantity, List<BillDetail> lstBillDetail, List<CartDetail> lstCartDetail, List<PromotionDetail> lstPromotionDetail, List<ProductList> lstProductList) {
+    public Product(String name, boolean status, double price, int quantity, List<BillDetail> lstBillDetail, List<CartDetail> lstCartDetail, List<ProductList> lstProductList) {
         this.name = name;
         this.status = status;
         this.price = price;
         this.quantity = quantity;
         this.lstBillDetail = lstBillDetail;
         this.lstCartDetail = lstCartDetail;
-        this.lstPromotionDetail = lstPromotionDetail;
         this.lstProductList = lstProductList;
     }
+
+    //    public Product(String name, boolean status, double price, int quantity, List<BillDetail> lstBillDetail, List<CartDetail> lstCartDetail, List<PromotionDetail> lstPromotionDetail, List<ProductList> lstProductList) {
+//        this.name = name;
+//        this.status = status;
+//        this.price = price;
+//        this.quantity = quantity;
+//        this.lstBillDetail = lstBillDetail;
+//        this.lstCartDetail = lstCartDetail;
+//        this.lstPromotionDetail = lstPromotionDetail;
+//        this.lstProductList = lstProductList;
+//    }
 
     public long getId() {
         return id;
@@ -96,13 +116,13 @@ public class Product {
         this.lstCartDetail = lstCartDetail;
     }
 
-    public List<PromotionDetail> getLstPromotionDetail() {
-        return lstPromotionDetail;
-    }
-
-    public void setLstPromotionDetail(List<PromotionDetail> lstPromotionDetail) {
-        this.lstPromotionDetail = lstPromotionDetail;
-    }
+//    public List<PromotionDetail> getLstPromotionDetail() {
+//        return lstPromotionDetail;
+//    }
+//
+//    public void setLstPromotionDetail(List<PromotionDetail> lstPromotionDetail) {
+//        this.lstPromotionDetail = lstPromotionDetail;
+//    }
 
     public List<ProductList> getLstProductList() {
         return lstProductList;

@@ -4,6 +4,16 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "accounts")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "Sp_GetAccounts",
+                procedureName = "Sp_GetAccounts",
+                resultClasses = Account.class,
+                parameters = {
+                        @StoredProcedureParameter(name = "keyword", mode = ParameterMode.IN, type = String.class)
+                }
+        )
+})
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -82,4 +92,6 @@ public class Account {
     public void setLstHistory(List<History> lstHistory) {
         this.lstHistory = lstHistory;
     }
+
+
 }
