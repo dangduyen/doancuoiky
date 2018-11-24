@@ -6,13 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import vn.hcmute.onlineshop.entity.Account;
+import vn.hcmute.onlineshop.entity.Bill;
 import vn.hcmute.onlineshop.entity.Event;
 import vn.hcmute.onlineshop.entity.Product;
+import vn.hcmute.onlineshop.exception.NotFoundException;
 import vn.hcmute.onlineshop.model.request.ProductModel;
-import vn.hcmute.onlineshop.service.AccountService;
-import vn.hcmute.onlineshop.service.EventService;
-import vn.hcmute.onlineshop.service.ProductService;
+import vn.hcmute.onlineshop.service.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +26,16 @@ public class AdminController {
     private AccountService accountService;
     @Autowired
     private EventService eventService;
+    @Autowired
+    private ProductListService productListService;
+    @Autowired
+    private BillService billService;
     @GetMapping("/quanlydonhang")
-        public String quanlydonhang(){
+        public String quanlydonhang(Model model){
+        List<Bill> bills=new ArrayList<>();
+        String keyword="";
+        bills=billService.getAllBill(keyword);
+        model.addAttribute("bills",bills);
         return "quanlydonhang";
         }
      @GetMapping("/quanlythongtin")
@@ -61,28 +70,31 @@ public class AdminController {
     public String addsanpham(Model model){
         Product product = new Product();
         model.addAttribute("product", product);
+        model.addAttribute("productList",productListService.getAllProductList());
+
         return "addsanpham";
     }
-   @PostMapping("/addsanpham")
-   public String addsanpham(Model model, @ModelAttribute("addsanpham") ProductModel productModel){
-        String name=productModel.getName();
-        double price=productModel.getPrice();
-        boolean status=productModel.isStatus();
-        int quantity=productModel.getQuantity();
-       Product product= new Product();
-       product.setName(name);
-       product.setPrice(price);
-       product.setQuantity(quantity);
-       product.setStatus(status);
-       productService.save(product);
-        return "redirect:/quanlysanpham";
-   }
+    @GetMapping("/editsanpham")
+    public String editsanpham(@RequestParam("id") long id, Model model){
+        Product product = new Product();
+        try {
+            product=productService.findProductById(id);
+
+        } catch (NotFoundException ex) {
+            model.addAttribute("error", ex.getMessage());
+
+        }
+        model.addAttribute("product", product);
+        return "editproduct";
+    }
     @GetMapping("/adddonhang")
     public String adddonhang(){
         return "adddonhang";
     }
     @GetMapping("/addthongtin")
-    public String addthongtin(){
+    public String addthongtin(Model model){
+        Event event=new Event();
+        model.addAttribute("event",event);
         return "addthongtin";
     }
 

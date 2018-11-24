@@ -5,6 +5,22 @@ import java.util.Date;
 import java.util.List;
 
 @Entity(name = "bills")
+       @NamedStoredProcedureQueries({
+               @NamedStoredProcedureQuery(
+                       name = "Sp_GetBills",
+                       procedureName = "Sp_GetBills",
+                       resultClasses = Bill.class,
+                       parameters = {
+                               @StoredProcedureParameter(name = "keyword", mode = ParameterMode.IN, type = String.class)
+                       }
+               ),
+               @NamedStoredProcedureQuery(
+                       name = "Sp_AddBill",
+                       procedureName = "Sp_AddBill",
+                       resultClasses = Bill.class
+               )
+       })
+
 public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

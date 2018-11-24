@@ -12,7 +12,18 @@ import java.util.Date;
                 parameters = {
                         @StoredProcedureParameter(name="keyword", mode = ParameterMode.IN, type = String.class)
                 }
+        ),
+        @NamedStoredProcedureQuery(
+                name = "Sp_AddEvent",
+                procedureName = "Sp_AddEvent",
+                resultClasses = Event.class
+        ),
+        @NamedStoredProcedureQuery(
+                name = "Sp_DeleteEvent",
+                procedureName = "Sp_DeleteEvent",
+                resultClasses = Event.class
         )
+
 })
 public class Event {
     @Id

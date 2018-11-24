@@ -4,6 +4,13 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "product_lists")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "Sp_GetProductsList",
+                procedureName = "Sp_GetProductsList",
+                resultClasses = ProductList.class
+        )
+})
 public class ProductList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

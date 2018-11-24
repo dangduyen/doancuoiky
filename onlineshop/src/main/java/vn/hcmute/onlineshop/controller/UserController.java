@@ -3,17 +3,27 @@ package vn.hcmute.onlineshop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jdbc.datasource.lookup.MapDataSourceLookup;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vn.hcmute.onlineshop.entity.Account;
 import vn.hcmute.onlineshop.entity.Customer;
+import vn.hcmute.onlineshop.entity.Role;
 import vn.hcmute.onlineshop.exception.NotFoundException;
+import vn.hcmute.onlineshop.model.dto.AccountDto;
+import vn.hcmute.onlineshop.model.dto.RoleDto;
 import vn.hcmute.onlineshop.model.request.RegisterModel;
 import vn.hcmute.onlineshop.service.AccountService;
 import vn.hcmute.onlineshop.service.CustomerService;
+import vn.hcmute.onlineshop.service.RoleService;
 
 import javax.servlet.http.HttpSession;
+import javax.sql.DataSource;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 public class UserController {
@@ -21,7 +31,8 @@ public class UserController {
     private AccountService accountService;
     @Autowired
     private CustomerService customerService;
-
+    @Autowired
+    private RoleService roleService;
     @Value("${login.error}")
     private String loginError;
 
@@ -31,6 +42,14 @@ public class UserController {
     @GetMapping("/")
     public String index(){
         return "index";
+    }
+
+    @GetMapping("/connect")
+    public String connect(Model model){
+        Account account=new Account();
+        model.addAttribute("loginError","");
+        model.addAttribute("account",account);
+        return "connect";
     }
     @GetMapping("/login")
     public String login(Model model){
@@ -50,14 +69,23 @@ public class UserController {
         String username=account.getUsername();
         String password=account.getPassword();
         try{
-            accountService.findAccountByUsernameAndPassword(username,password);
+            AccountDto accountDto = accountService.findAccountByUsernameAndPassword(username,password);
+            System.out.println("accountDto "+ accountDto.getRoles().get(0).getName());
+            List<RoleDto> roleAdminDtos =  accountDto.getRoles().stream()
+                    .filter(roleDto -> roleDto.getName().equals("ROLE_ADMIN"))
+                    .collect(Collectors.toList());
+            if(roleAdminDtos.isEmpty()) {
+                session.setAttribute("SESSION_FULL_NAME",account.getUsername());
+                return "redirect:/";
+            } else {
+                session.setAttribute("SESSION_FULL_NAME",account.getUsername());
+                return "redirect:/admin";
+            }
         }
         catch (NotFoundException e){
             model.addAttribute("loginError",loginError);
             return "login";
         }
-        session.setAttribute("SESSION_FULL_NAME",account.getUsername());
-        return "redirect:/";
     }
     @GetMapping("/register")
     public String register(Model model){
@@ -92,7 +120,14 @@ public class UserController {
         customerService.save(customer);
         account.setCustomer(customer);
         accountService.save(account);
-        return "redirect:/login";
+        customer.setAccount(account);
+        customerService.save(customer);
+
+        Role role = roleService.findByName("ROLE_USER");
+        account.setLstRole(Arrays.asList(role));
+        role.getLstAccount().add(account);
+        roleService.saveRole(role);
+;        return "redirect:/login";
     }
     @GetMapping("/care")
     public String care(){

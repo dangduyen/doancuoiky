@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface ProductReponsitory extends JpaRepository<Product,Long> {
     Optional<Product> findProductByNameAndStatusAndPriceAndQuantity(String name, boolean status, double price, int quantity);
     Optional<Product> findProductByName(String name);
+    Optional<Product> findProductById(long id);
 }

@@ -19,6 +19,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.css">
+    <script src="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.js"></script>
+
 </head>
 
 <body>
@@ -107,14 +110,15 @@
                 </thead>
                 <tbody id="tbody_events">
                 <tr th:each="item : ${events}">
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" th:value="${item.id}"></td>
+                    <td style="display: none" th:text="${item.id}"></td>
                     <td th:text="${item.name}"></td>
                     <td th:text="${item.content}"></td>
                     <td th:text="${item.startDate}"></td>
                     <td th:text="${item.endDate}"></td>
                     <td>
                         <button class="btn btn-warning">Sửa</button>
-                        <button class="btn btn-danger">Xóa</button>
+                        <button class="btn btn-danger" onclick="onDelete(event)">Xóa</button>
                     </td>
                 </tr>
                 </tbody>
@@ -158,10 +162,10 @@
         var $keyword=$('#txt-search').val();
         console.log($keyword);
         $.ajax({
-            method: 'POST',
-            data: {keyword: $keyword},
-            dataType: 'json',
-            url: "/quanlythongtin",
+                method: 'POST',
+                data: {keyword: $keyword},
+                dataType: 'json',
+                url: "/quanlythongtin",
             success: function (res) {
                 console.log(res);
                 var content="";
@@ -177,6 +181,65 @@
                         +"</tr>>"
                 })
                 $('#tbody_events').html(content)
+            }
+        })
+    }
+    function onDelete(e) {
+        var $click = $(e.target).closest('td').closest('tr').find('td:eq(1)');
+        var $id = $click.text();
+        $.confirm({
+            title : "Xác nhận!",
+            content : "Bạn có muốn xóa thông tin này ?",
+            buttons : {
+                YES : function() {
+                    $.ajax({
+                        method : 'POST',
+                        data : {
+                            id : $id,
+                        },
+                        dataType : 'json',
+                        url: "/xoathongtin",
+                        success : function (res) {
+                            console.log(res);
+                            if(res.success == "true") {
+                                $.alert({
+                                    title:"Thông báo",
+                                    content:"Xóa thông tin thành công!"
+                                });
+                                var content="";
+                                $.each(res.data,function (index, value) {
+                                    content += "<tr>"
+                                        +"<td><input type='checkbox' value=`${value.id}`></td>"
+                                        +" <td style=\"display: none\"  th:text=\"${item.id}\"></td>\n"
+                                        +"<td>"+value.name+"</td>"
+                                        +"<td>"+value.startDate+"</td>"
+                                        +"<td>"+value.endDate+"</td>"
+                                        +"<td>" + value.content+ "</td>"
+                                        +"<td> <button class=\"btn btn-warning\">Sửa</button>\n" +
+                                        "                        <button class=\"btn btn-danger\" onclick='onDelete(e)'>Xóa</button></td>"
+                                        +"</tr>"
+                                });
+                                $('#tbody_events').html(content);
+
+                            }
+                            else if (res.success == "false") {
+                                $.alert({
+                                    title:"Thông báo",
+                                    content:"Xóa thông tin không thành công!" + res.error
+                                })
+                            }
+                        },
+                        failure : function (err) {
+                            console.log(err);
+                        },
+                        error : function (err) {
+                            console.log(err);
+                        }
+                    })
+                },
+                NO : function () {
+
+                }
             }
         })
     }

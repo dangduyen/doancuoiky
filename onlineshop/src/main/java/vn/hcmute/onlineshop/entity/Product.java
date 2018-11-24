@@ -12,8 +12,24 @@ import java.util.List;
                 parameters = {
                         @StoredProcedureParameter(name="keyword", mode = ParameterMode.IN, type = String.class)
                 }
+        ),
+        @NamedStoredProcedureQuery(
+                name = "Sp_AddProduct",
+                procedureName = "Sp_AddProduct",
+                resultClasses = Product.class
+        ),
+        @NamedStoredProcedureQuery(
+                name="Sp_DeleteProduct",
+                procedureName = "Sp_DeleteProduct",
+                resultClasses = Product.class
+        ),
+        @NamedStoredProcedureQuery(
+                name = "Sp_EditProduct",
+                procedureName = "Sp_EditProduct",
+                resultClasses = Product.class
         )
 })
+
 public class Product {
 
     @Id
@@ -38,6 +54,15 @@ public class Product {
 
     public Product() {
     }
+
+    public Product(String name, boolean status, double price, int quantity) {
+        this.name = name;
+        this.status = status;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+
 
     public Product(String name, boolean status, double price, int quantity, List<BillDetail> lstBillDetail, List<CartDetail> lstCartDetail, List<ProductList> lstProductList) {
         this.name = name;

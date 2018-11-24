@@ -12,6 +12,11 @@ import java.util.List;
                 parameters = {
                         @StoredProcedureParameter(name = "keyword", mode = ParameterMode.IN, type = String.class)
                 }
+        ),
+        @NamedStoredProcedureQuery(
+                name = "Sp_DeleteAccount",
+                procedureName = "Sp_DeleteAccount",
+                resultClasses = Account.class
         )
 })
 public class Account {

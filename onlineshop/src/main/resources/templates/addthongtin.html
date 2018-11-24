@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -17,6 +18,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.css">
+    <script src="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.js"></script>
 
 </head>
 
@@ -63,32 +66,33 @@
     </div>
 </div>
 <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
-    <form style="background-color: #EEE ;padding:30px 20px;opacity: 0.8;">
+    <form style="background-color: #EEE ;padding:30px 20px;opacity: 0.8;" th:object="${event}">
         <div class="row">
             <div class="form-group">
                 <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
-                    <div class="col-md-6 col-lg-3 col-xs-12 col-sm-9"><label for="" class="control-label">STT: </label></div>
-                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-9"><label class="control-label">Tên Sự Kiện: </label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
+                        <input type="text" id="input-name" class="form-control" th:field="*{name}" required=true></div>
                     <br> <br>
-                    <div class="col-md-6 col-lg-3 col-xs-12 col-sm-9"><label for="" class="control-label">Tên Sự Kiện: </label></div>
-                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="email" class="form-control" required=true></div>
+                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-9"><label  class="control-label">Thời gian bắt đầu: </label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
+                        <input type="text" id="input-startDate" class="form-control" th:field="*{startDate}" required=true></div>
                     <br> <br>
-                    <div class="col-md-6 col-lg-3 col-xs-12 col-sm-9"><label for="" class="control-label">TG Bắt đầu: </label></div>
-                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-9"><label class="control-label">Thời gian kết thúc:</label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
+                        <input type="text" id="input-endDate" class="form-control" th:field="*{endDate}" required=true></div>
                     <br> <br>
-                    <div class="col-md-6 col-lg-3 col-xs-12 col-sm-9"><label for="" class="control-label">TG kết thúc:</label></div>
-                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
-                    <br> <br>
-                    <div class="col-md-6 col-lg-3 col-xs-12 col-sm-9"><label for="" class="control-label">Nội dung:</label></div>
-                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
+                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-9"><label  class="control-label">Nội dung:</label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
+                        <input type="text" id="input-content" class="form-control" th:field="*{content}" required=true></div>
                     <br> <br>
                 </div>
             </div>
         </div>
         <div class="col-md-10">
             <div style="float: right">
-                <button type="button" class="btn btn-success">Add</button>
-                <button type="button" class="btn btn-default">Cancel</button>
+                <button type="button" onclick="addEdit()" class="btn btn-success">Add</button>
+                <button type="button" onclick="onCancel()" class="btn btn-danger">Cancel</button>
             </div>
         </div>
     </form>
@@ -111,6 +115,57 @@
             $("#temp").text($(this).text());
         });
     })
+    function addEdit() {
+        $.confirm({
+            title : "Xác nhận!",
+            content : "Bạn có muốn thêm thông tin này ?",
+            buttons : {
+                YES : function() {
+                    $.ajax({
+                        method : 'POST',
+                        data : {
+                            name : $.trim($('#input-name').val()),
+                            startDate : $.trim($('#input-startDate').val()),
+                            endDate : $.trim($('#input-endDate').val()),
+                            content : $.trim($('#input-content').val())
+                        },
+                        dataType : 'json',
+                        url: "/themthongtin",
+                        success : function (res) {
+                            console.log(res);
+                            if(res.success == "true") {
+                                $.alert({
+                                    title:"Thông báo",
+                                    content:"Thêm thông tin thành công!"
+                                })
+                            }
+                            else if (res.success == "false") {
+                                $.alert({
+                                    title:"Thông báo",
+                                    content:"Thêm thông tin không thành công!" + res.error
+                                })
+                            }
+                        },
+                        failure : function (err) {
+                            console.log(err);
+                        },
+                        error : function (err) {
+                            console.log(err);
+                        }
+                    })
+                },
+                NO : function () {
+
+                }
+            }
+        })
+    }
+     function onCancel() {
+         $('#input-name').val("");
+         $('#input-startDate').val("");
+         $('#input-endDate').val("");
+         $('#input-content').val("")
+     }
 </script>
 
 </body>

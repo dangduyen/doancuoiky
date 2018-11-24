@@ -15,9 +15,8 @@
     <link rel="stylesheet" href="assets/style_admin.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="assets/bootstrap/js/parallax.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.css">
+    <script src="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.js"></script>
 
 </head>
 
@@ -75,35 +74,43 @@
                 <div class="form-group">
                     <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                         <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Tên sản phẩm: </label></div>
-                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{name}" required=true></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
+                            <input id="input-name" type="text" class="form-control" th:field="*{name}" required=true></div>
                         <br> <br>
                         <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Giá: </label></div>
-                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{price}" required=true></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
+                            <input id="input-price" type="text" class="form-control" th:field="*{price}" required=true></div>
                         <br> <br>
                         <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label class="control-label">Số lượng: </label></div>
-                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" th:field="*{quantity}" required=true></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
+                            <input id="input-quantity" type="text" class="form-control" th:field="*{quantity}" required=true></div>
                         <br> <br>
                         <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label class="control-label">Trạng thái: </label></div>
                         <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-                            <select class="form-control" th:field="*{status}">
+                            <select id="sel-status" class="form-control" th:field="*{status}">
                                 <option th:value="1">Còn hàng</option>
                                 <option th:value="0">Hết hàng</option>
                             </select>
                         </div>
                         <br> <br>
                         <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label class="control-label">Loại SP:</label></div>
-                        <div class="col-md-6 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
+                        <div class="col-md-6 col-lg-8 col-xs-12 col-sm-12">
+                            <select class="form-control" id="sel-productList">
+                                <option th:each="item:${productList}" th:value="${item.id}" th:text="${item.name}"></option>
+                            </select>
                         <br> <br>
                         <div>
                             <label class="btn btn-success">Chọn hình : <input type="file"></label>
                         </div>
+                            <br> <br>
                     </div>
                     <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
                         <div style="float: right">
-                            <button type="button" class="btn btn-success">Add</button>
-                            <button type="button" class="btn btn-default">Cancel</button>
+                            <button onclick="addEdit()" type="button" class="btn btn-success">Add</button>
+                            <button onclick="onCancel()" type="button" class="btn btn-danger">Cancel</button>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </form>
@@ -127,7 +134,61 @@
         $("#SanPham").click(function () {
             $("#temp").text($(this).text());
         });
+
     })
+
+    function onCancel() {
+        $('#input-name').val("");
+    }
+    
+    function addEdit() {
+        $.confirm({
+            title : "Xác nhận!",
+            content : "Bạn có muốn thêm sản phẩm này ?",
+            buttons : {
+                YES : function() {
+                    $.ajax({
+                        method : 'POST',
+                        data : {
+                            name : $.trim($('#input-name').val()),
+                            price : $.trim($('#input-price').val()),
+                            quantity : $.trim($('#input-quantity').val()),
+                            status : $('#sel-status option:selected').val(),
+                            productListId : $('#sel-productList option:selected').val()
+                        },
+                        dataType : 'json',
+                        url: "/themsanpham",
+                        success : function (res) {
+                            console.log(res);
+                            if(res.success == "true") {
+                                $.alert({
+                                    title:"Thông báo",
+                                    content:"Thêm sản phẩm thành công!"
+                                })
+                            }
+                            else if (res.success == "false") {
+                                $.alert({
+                                    title:"Thông báo",
+                                    content:"Thêm sản phẩm không thành công!" + res.error
+                                })
+                            }
+                        },
+                        failure : function (err) {
+                            console.log(err);
+                        },
+                        error : function (err) {
+                            console.log(err);
+                        }
+                    })
+                },
+                NO : function () {
+
+                }
+            }
+        })
+    }
+
+
 </script>
 
 </body>

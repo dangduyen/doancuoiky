@@ -21,6 +21,9 @@ public class EventDto implements Serializable {
         this.endDate = endDate;
     }
 
+    public <R> EventDto(long id, String username, String password, String name, String phone, String email, R collect) {
+    }
+
     public long getId() {
         return id;
     }

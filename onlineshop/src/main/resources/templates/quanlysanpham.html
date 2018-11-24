@@ -19,6 +19,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.css">
+    <script src="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.js"></script>
+
 </head>
 
 <body>
@@ -110,7 +113,8 @@
            </thead>
             <tbody id="tbody_products">
                 <tr th:each="item:${products}">
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" th:value="${item.id}"></td>
+                    <td style="display: none" th:text="${item.id}"></td>
                     <td th:text="${item.name}"></td>
                     <td th:text="${item.price}"></td>
                     <td th:text="${item.quantity}"></td>
@@ -119,8 +123,8 @@
                         <span th:if="${item.status == false}">Hết hàng</span>
                     </td>
                     <td>
-                        <button class="btn btn-warning">Sửa</button>
-                        <button class="btn btn-danger">Xóa</button>
+                        <a class="btn btn-warning" type="button" th:href="@{/editsanpham(id=${item.id})}">Sửa</a>
+                        <button class="btn btn-danger" type="button" onclick="onDelete(event)">Xóa</button>
                     </td>
                 </tr>
             </tbody>
@@ -180,16 +184,84 @@
                         trangThai = "Hết hàng"
                     }
                     content += "<tr>"
-                        +"<td><input type='checkbox'></td>"
+                        +"<td><input type='checkbox' value=`${value.id}`></td>"
+                            +" <td style=\"display: none\"  th:text=\"${item.id}\"></td>\n"
                         +"<td>"+value.name+"</td>"
                         +"<td>"+value.price+"</td>"
                         +"<td>"+value.quantity+"</td>"
                         +"<td>" + trangThai+ "</td>"
                         +"<td> <button class=\"btn btn-warning\">Sửa</button>\n" +
-                        "                        <button class=\"btn btn-danger\">Xóa</button></td>"
+                        "                        <button class=\"btn btn-danger\" onclick='onDelete(e)'>Xóa</button></td>"
                         +"</tr>"
                 });
                 $('#tbody_products').html(content);
+            }
+        })
+    }
+
+
+    function onDelete(e) {
+        var $click = $(e.target).closest('td').closest('tr').find('td:eq(1)');
+        var $id = $click.text();
+        $.confirm({
+            title : "Xác nhận!",
+            content : "Bạn có muốn xóa sản phẩm này ?",
+            buttons : {
+                YES : function() {
+                    $.ajax({
+                        method : 'POST',
+                        data : {
+                            id : $id,
+                        },
+                        dataType : 'json',
+                        url: "/xoasanpham",
+                        success : function (res) {
+                            console.log(res);
+                            if(res.success == "true") {
+                                $.alert({
+                                    title:"Thông báo",
+                                    content:"Xóa sản phẩm thành công!"
+                                });
+                                var content="";
+                                $.each(res.data,function (index, value) {
+                                    var trangThai = "";
+                                    if(value.status == true){
+                                        trangThai = "Còn hàng"
+                                    } else {
+                                        trangThai = "Hết hàng"
+                                    }
+                                    content += "<tr>"
+                                        +"<td><input type='checkbox' value=`${value.id}`></td>"
+                                        +" <td style=\"display: none\"  th:text=\"${item.id}\"></td>\n"
+                                        +"<td>"+value.name+"</td>"
+                                        +"<td>"+value.price+"</td>"
+                                        +"<td>"+value.quantity+"</td>"
+                                        +"<td>" + trangThai+ "</td>"
+                                        +"<td> <button class=\"btn btn-warning\">Sửa</button>\n" +
+                                        "                        <button class=\"btn btn-danger\" onclick='onDelete(e)'>Xóa</button></td>"
+                                        +"</tr>"
+                                });
+                                $('#tbody_products').html(content);
+
+                            }
+                            else if (res.success == "false") {
+                                $.alert({
+                                    title:"Thông báo",
+                                    content:"Xóa sản phẩm không thành công!" + res.error
+                                })
+                            }
+                        },
+                        failure : function (err) {
+                            console.log(err);
+                        },
+                        error : function (err) {
+                            console.log(err);
+                        }
+                    })
+                },
+                NO : function () {
+
+                }
             }
         })
     }

@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.css">
+    <script src="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.js"></script>
 
 </head>
 
@@ -84,60 +86,42 @@
             <div class="form-group col-md-9"  style="padding-left:0">
                 <input type="text"  placeholder="Tim Kiếm" class="form-control">
             </div>
-            <button class="btn btn-success" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+            <button class="btn btn-success" style="font-size: 15px" id="btn-seach" type="button" onclick="filter()">
+                <i class="fa fa-search" aria-hidden="true"></i> Lọc</button>
         </div>
         <div class="col-md-6">
             <div style="float: right">
                 <a href="/adddonhang"><button type="button" class="btn btn-success">Add</button> </a>
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-primary">Edit</button>
             </div>
         </div>
     </div>
 
 
-    <div class="col-md-12">
-        <table class="col-md-12  text-center" border="1">
+    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12" th:fragment="table_result" id="table-result">
+        <table class="table table-bordered table-hover table-striped table-responsive">
+            <thead>
             <tr>
                 <th></th>
-                <th>STT</th>
-                <th>Tài khoản</th>
-                <th>Ngày mua hàng</th>
-                <th>Sản phẩm</th>
-                <th>Thanh toán </th>
+                <th>Ngày thanh toán</th>
+                <th>Hình thức vận chuyển</th>
+                <th>Tổng tiền</th>
+                <th></th>
             </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td>Griffin</td>
-                <td>2/11/2018</td>
-                <td>Áo thun</td>
-                <td>150.000d</td>
+            </thead>
+
+            <tbody id="tbody_bills">
+            <tr th:each="item : ${bills}">
+                <td><input type="checkbox" th:value="${item.id}"></td>
+                <td style="display: none" th:text="${item.id}"></td>
+                <td th:text="${item.payDate}"></td>
+                <td th:text="${item.recipients}"></td>
+                <td th:text="${item.total}"></td>
+                <td>
+                    <button class="btn btn-warning">Sửa</button>
+                    <button class="btn btn-danger" >Xóa</button>
+                </td>
             </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>2</td>
-                <td>1234d</td>
-                <td>2/11/2018</td>
-                <td>Quần dài</td>
-                <td>210.000d</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>3</td>
-                <td>Swanson</td>
-                <td>2/11/2018</td>
-                <td>Đồng hồ</td>
-                <td>120.000d</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td>4</td>
-                <td>Brown</td>
-                <td>2/11/2018</td>
-                <td>Áo khoác</td>
-                <td>60.000d</td>
-            </tr>
+            </tbody>
         </table>
     </div>
 
@@ -150,10 +134,6 @@
                     <a class="page-link" href="#" tabindex="-1">Previous</a>
                 </li>
                 <li class="page-item active " ><a class="page-link" href="#">1</a></li>
-                <li class="page-item ">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="page-item" ><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
                     <a class="page-link" href="#">Next</a>
                 </li>
@@ -180,6 +160,31 @@
             $("#temp").text($(this).text());
         });
     })
+    function filter() {
+        var $keyword=$('#txt-search').val();
+        $.ajax({
+            method : 'POST',
+            data : {keyword : $keyword},
+            dataType : 'json',
+            url: "/quanlydonhang",
+            success: function (res) {
+                console.log(res);
+                var content="";
+                $.each(res,function (index, value) {
+                    content += "<tr>"
+                        +"<td><input type='checkbox' value=`${value.id}`></td>"
+                        +" <td style=\"display: none\"  th:text=\"${item.id}\"></td>\n"
+                        +"<td>"+value.payDate+"</td>"
+                        +"<td>"+value.total+"</td>"
+                        +"<td>"+value.recipient+"</td>"
+                        +"<td> <button class=\"btn btn-warning\">Sửa</button>\n" +
+                        "                        <button class=\"btn btn-danger\" onclick='onDelete(e)'>Xóa</button></td>"
+                        +"</tr>"
+                });
+                $('#tbody_bills').html(content);
+            }
+        })
+    }
 </script>
 </body>
 </html>
