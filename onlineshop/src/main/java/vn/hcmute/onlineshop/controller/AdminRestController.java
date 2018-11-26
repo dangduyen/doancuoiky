@@ -130,6 +130,18 @@ public class AdminRestController {
         dataReturn=eventService.deleteEvent(id);
         return dataReturn;
     }
+    @PostMapping("/editthongtin")
+    public DataReturn editthongtin(HttpServletRequest request){
+        Long id= Long.valueOf(request.getParameter("id").trim());
+        String name=request.getParameter("name");
+        String content=request.getParameter("content");
+        String startDate=request.getParameter("startDate");
+        String endDate=request.getParameter("endDate");
+//        Event newEvent=new Event(name, content, Date.valueOf(Optional.of(startDate).orElse("1/1/1991")),Date.valueOf(Optional.of(endDate).orElse("1/1/1991")));
+        DataReturn dataReturn=new DataReturn();
+        dataReturn=eventService.editEvent(id,name,content,Date.valueOf(Optional.of(startDate).orElse("1/1/1991")),Date.valueOf(Optional.of(endDate).orElse("1/1/1991")));
+        return dataReturn;
+    }
     @PostMapping("/quanlydonhang")
     public ResponseEntity<?> searchBill(HttpServletRequest request){
         String keyword=request.getParameter("keyword");
@@ -139,6 +151,33 @@ public class AdminRestController {
                 .map(bill -> new BillDto(bill.getId(),bill.getTotal(),bill.getPayDate(),bill.getRecipients()))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(billDtos);
+    }
+    @PostMapping("/themdonhang")
+    public DataReturn addBill(HttpServletRequest request){
+        Double total= Double.valueOf(request.getParameter("total"));
+        String payDate=request.getParameter("payDate");
+        String recipients=request.getParameter("recipients");
+        Bill newBill=new Bill(total,Date.valueOf(Optional.of(payDate).orElse("1/1/1991")),recipients,null, null,null);
+        DataReturn dataReturn=new DataReturn();
+        dataReturn=billService.saveBill(newBill);
+        return dataReturn;
+    }
+    @PostMapping("/xoadonhang")
+    public DataReturn deleteBill(HttpServletRequest request){
+        long id= Long.parseLong(request.getParameter("id"));
+        DataReturn dataReturn=new DataReturn();
+        dataReturn=billService.deleteBill(id);
+        return dataReturn;
+    }
+    @PostMapping("/editdonhang")
+    public DataReturn editBill(HttpServletRequest request){
+        Long id= Long.valueOf(request.getParameter("id").trim());
+        Double total= Double.valueOf(request.getParameter("total"));
+        String payDate=request.getParameter("payDate");
+        String recipients=request.getParameter("recipients");
+        DataReturn dataReturn=new DataReturn();
+        dataReturn=billService.editBill(id,total,Date.valueOf(Optional.of(payDate).orElse("1/1/1991")),recipients);
+        return dataReturn;
     }
     @PostMapping("/getinstance")
     public DataReturn getInstance(HttpServletRequest request) {

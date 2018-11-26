@@ -32,7 +32,7 @@
                 <div th:if="${session.SESSION_FULL_NAME} == null">
                     <ul class="list-unstyled list-inline pull-right">
                         <li><a href="/login" style="color:orangered">Đăng nhập</a></li>
-                        <li><a href="/register"style="color:orangered">Đăng kí</a></li>
+                        <li><a href="/register"style="color:orangered">Đăng ký</a></li>
                     </ul>
                 </div>
                 <div  th:if="${session.SESSION_FULL_NAME} != null">
@@ -89,13 +89,13 @@
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
-                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label for="" class="control-label">Name: </label></div>
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Name: </label></div>
                         <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
                         <br> <br> <br>
-                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label for="" class="control-label">Numberphone: </label></div>
-                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="password" class="form-control" required=true></div>
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label class="control-label">Numberphone: </label></div>
+                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
                         <br> <br> <br>
-                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label for="" class="control-label">Shipping address </label></div>
+                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Shipping address </label></div>
                         <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input type="text" class="form-control" required=true></div>
                         <br> <br> <br>
                         <h3>Chọn hình thức thanh toán</h3>

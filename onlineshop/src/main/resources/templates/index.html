@@ -31,14 +31,11 @@
                 <div  th:if="${session.SESSION_FULL_NAME} == null">
                     <ul class="list-unstyled list-inline pull-right">
                         <li><a href="/login" style="color:orangered">Đăng nhập</a></li>
-                        <li><a href="/register"style="color:orangered">Đăng kí</a></li>
+                        <li><a href="/register"style="color:orangered">Đăng ký</a></li>
                     </ul>
                 </div>
                 <div  th:if="${session.SESSION_FULL_NAME} != null">
                     <ul class="list-unstyled list-inline pull-right">
-                        <!--<li th:if="${session.SESSION_ROLE} == 'ROLE_ADMIN'">-->
-                            <!--<a href="/admin" style="color:orangered">Đi tới Admin</a>-->
-                        <!--</li>-->
                         <li><a href="/login" style="color:orangered" th:utext="${session.SESSION_FULL_NAME}"></a></li>
                         <li><a href="/logout"style="color:orangered">Đăng xuất</a></li>
                     </ul>

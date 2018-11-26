@@ -117,7 +117,7 @@
                     <td th:text="${item.startDate}"></td>
                     <td th:text="${item.endDate}"></td>
                     <td>
-                        <button class="btn btn-warning">Sửa</button>
+                        <a class="btn btn-warning" type="button" th:href="@{/editthongtin(id=${item.id})}">Sửa</a>
                         <button class="btn btn-danger" onclick="onDelete(event)">Xóa</button>
                     </td>
                 </tr>

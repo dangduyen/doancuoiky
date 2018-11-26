@@ -42,7 +42,6 @@ public class AccountServiceImpl implements AccountService {
                         account.getLstRole().stream()
                             .map(role -> new RoleDto(role.getId(),role.getName()))
                                 .collect(Collectors.toList()))).get();
-//        return accountOptional.get();
         return accountDtos;
     }
 

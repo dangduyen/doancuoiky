@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Thêm đơn hàng</title>
+    <title>Sửa đơn hàng</title>
 
     <script src="assets/jquery/jquery.3.2.1.js "></script>
     <script src="assets/bootstrap/js/bootstrap.min.js "></script>
@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="assets/bootstrap/js/parallax.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.css">
     <script src="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.js"></script>
 
@@ -41,7 +43,7 @@
                 <a class="navbar-brand">Beauty 2D</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="#" style="margin-left: 150px;font-size: 18px ">Quản lý > <i id="temp">Quản lý đơn hàng</i><i>>Thêm
+                <li><a href="#" style="margin-left: 150px;font-size: 18px ">Quản lý > <i id="temp">Quản lý đơn hàng</i><i>>Sửa
                     đơn hàng</i></a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" style="margin-left: 300px" href="#">Admin <span
@@ -72,7 +74,7 @@
         <div class="row">
             <div class="form-group">
                 <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
-
+                    <input id="input-id" style="display: none" type="text" class="form-control" th:field="*{id}" required=true></div>
                     <div class="col-md-6 col-lg-6 col-xs-12 col-sm-9"><label  class="control-label">Ngày mua </label></div>
                     <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
                         <input type="text" id="input-payDate" class="form-control" th:field="*{payDate}" required=true></div>
@@ -114,33 +116,37 @@
             $("#temp").text($(this).text());
         });
     })
+    function onCancel() {
+        $('#input-payDate').val("");
+    }
     function addEdit() {
         $.confirm({
             title : "Xác nhận!",
-            content : "Bạn có muốn thêm đơn hàng này ?",
+            content : "Bạn có muốn sửa đơn hàng này ?",
             buttons : {
                 YES : function() {
                     $.ajax({
                         method : 'POST',
                         data : {
-                            payDate: $.trim($('#input-payDate').val()),
+                            id: $.trim($('#input-id').val()),
+                            payDate: $('#input-payDate').val(),
                             recipients: $.trim($('#input-recipients').val()),
                             total: $.trim($('#input-total').val())
                         },
                         dataType : 'json',
-                        url: "/themdonhang",
+                        url: "/editdonhang",
                         success : function (res) {
                             console.log(res);
                             if(res.success == "true") {
                                 $.alert({
                                     title:"Thông báo",
-                                    content:"Thêm đon hàng thành công!"
+                                    content:"Sửa đon hàng thành công!"
                                 })
                             }
                             else if (res.success == "false") {
                                 $.alert({
                                     title:"Thông báo",
-                                    content:"Thêm đơn hàng không thành công!" + res.error
+                                    content:"Sửa đơn hàng không thành công!" + res.error
                                 })
                             }
                         },

@@ -87,9 +87,35 @@ public class AdminController {
         model.addAttribute("product", product);
         return "editproduct";
     }
+    @GetMapping("editdonhang")
+    public String eidtdonhang(@RequestParam("id") long id, Model model){
+        Bill bill=new Bill();
+        try {
+            bill=billService.findBillById(id);
+        }catch (NotFoundException ex){
+            model.addAttribute("error",ex.getMessage());
+        }
+        model.addAttribute("bill",bill);
+        return "editdonhang";
+    }
     @GetMapping("/adddonhang")
-    public String adddonhang(){
+    public String adddonhang(Model model){
+        Bill bill=new Bill();
+        model.addAttribute("bill",bill);
         return "adddonhang";
+    }
+    @GetMapping("/editthongtin")
+    public  String editthongtin(@RequestParam("id") long id, Model model){
+        Event event=new Event();
+        try {
+
+            event=eventService.findEventById(id);
+
+        }catch (NotFoundException ex){
+            model.addAttribute("error", ex.getMessage());
+        }
+        model.addAttribute("event",event);
+        return "editthongtin";
     }
     @GetMapping("/addthongtin")
     public String addthongtin(Model model){

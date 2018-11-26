@@ -22,6 +22,11 @@ import java.util.Date;
                 name = "Sp_DeleteEvent",
                 procedureName = "Sp_DeleteEvent",
                 resultClasses = Event.class
+        ),
+        @NamedStoredProcedureQuery(
+                name="Sp_EditEvent",
+                procedureName = "Sp_EditEvent",
+                resultClasses = Event.class
         )
 
 })

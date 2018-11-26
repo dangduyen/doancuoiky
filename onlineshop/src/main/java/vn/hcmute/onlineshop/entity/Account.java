@@ -33,10 +33,10 @@ public class Account {
     )
     private List<Role> lstRole;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval=true)
     private Customer customer;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval=true)
     private List<History> lstHistory;
 
     public Account() {

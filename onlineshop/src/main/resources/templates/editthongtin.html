@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sửa sản phẩm</title>
+    <title>Sửa thông tin</title>
 
     <script src="assets/jquery/jquery.3.2.1.js "></script>
     <script src="assets/bootstrap/js/bootstrap.min.js "></script>
@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="assets/style_admin.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="assets/bootstrap/js/parallax.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.css">
     <script src="assets/jquery-confirm-v3.3.0/dist/jquery-confirm.min.js"></script>
 
@@ -39,8 +42,8 @@
             <a class="navbar-brand">Beauty 2D</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="#" style="margin-left: 150px;font-size: 18px ">Quản lý> <i id="temp">Quản lý sản phẩm</i><i>>Sửa
-                sản phẩm</i></a></li>
+            <li><a href="#" style="margin-left: 150px;font-size: 18px ">Quản lý > <i id="temp">Quản lý thông tin</i><i>>Sửa
+                thông tin</i></a></li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" style="margin-left: 300px" href="#">Admin <span
                         class="caret"></span></a>
@@ -55,56 +58,45 @@
 <div style="max-width:300px; float: left; margin-right: 20px;">
     <div class="vertical-menu col-sm-4">
         <a href="/admin" id="home"><i class="glyphicon glyphicon-home"></i>&ensp;Trang chủ</a>
-        <a href="/quanlytaikhoan" id="TaiKhoan" ><i class="glyphicon glyphicon-user"></i>&ensp;Quản lí tài khoản</a>
-        <a href="/quanlydonhang" id="DonHang"><i class="glyphicon glyphicon-book"></i>&ensp;Quản lí đơn hàng</a>
-        <a href="/quanlythongtin" id="ThongTin"><i class="glyphicon glyphicon-tasks"></i>&ensp;Quản lí thông tin</a>
-        <a href="/quanlysanpham" id="SanPham" class="active"><i class="glyphicon glyphicon-sunglasses"></i>&ensp;Quản lí sản phẩm</a>
+        <a href="/quanlytaikhoan" id="TaiKhoan" ><i class="glyphicon glyphicon-user"></i>&ensp;Quản lý tài khoản</a>
+        <a href="/quanlydonhang" id="DonHang"><i class="glyphicon glyphicon-book"></i>&ensp;Quản lý đơn hàng</a>
+        <a href="/quanlythongtin" id="ThongTin" class="active"><i class="glyphicon glyphicon-tasks"></i>&ensp;Quản lý thông tin</a>
+        <a href="/quanlysanpham" id="SanPham"><i class="glyphicon glyphicon-sunglasses"></i>&ensp;Quản lý sản phẩm</a>
+        <br>
     </div>
 </div>
+<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+    <form style="background-color: #EEE ;padding:30px 20px;opacity: 0.8;" th:object="${event}">
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
+                    <input id="input-id" style="display: none" type="text" class="form-control" th:field="*{id}" required=true></div>
+                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-9"><label class="control-label">Tên Sự Kiện: </label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
+                        <input type="text" id="input-name" class="form-control" th:field="*{name}" required=true></div>
+                    <br> <br>
+                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-9"><label  class="control-label">Nội dung:</label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
+                        <input type="text" id="input-content" class="form-control" th:field="*{content}" required=true></div>
+                    <br> <br>
+                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-9"><label  class="control-label">Thời gian bắt đầu: </label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
+                        <input type="text" id="input-startDate" class="form-control" th:field="*{startDate}" required=true></div>
+                    <br> <br>
+                    <div class="col-md-6 col-lg-6 col-xs-12 col-sm-9"><label class="control-label">Thời gian kết thúc:</label></div>
+                    <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
+                        <input type="text" id="input-endDate" class="form-control" th:field="*{endDate}" required=true></div>
+                    <br> <br>
 
-
-<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12">
-    <div class="row col-lg-2 col-md-2 col-sm-4 col-xs-6">
-
-    </div>
-    <div  class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
-        <form style=" padding:30px 20px;opacity: 0.8;" th:object="${product}">
-            <div class="row">
-                <div class="form-group">
-                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
-
-                            <input id="input-id" style="display: none" type="text" class="form-control" th:field="*{id}" required=true></div>
-                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Tên sản phẩm: </label></div>
-                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-                            <input id="input-name" type="text" class="form-control" th:field="*{name}" required=true></div>
-                        <br> <br>
-                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Giá: </label></div>
-                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-                            <input id="input-price" type="text" class="form-control" th:field="*{price}" required=true></div>
-                        <br> <br>
-                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label class="control-label">Số lượng: </label></div>
-                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-                            <input id="input-quantity" type="text" class="form-control" th:field="*{quantity}" required=true></div>
-                        <br> <br>
-                        <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label class="control-label">Trạng thái: </label></div>
-                        <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-                            <select id="sel-status" class="form-control" th:field="*{status}">
-                                <option th:value="1">Còn hàng</option>
-                                <option th:value="0">Hết hàng</option>
-                            </select>
-                        </div>
-                        <br> <br>
-                                               <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12">
-                            <div style="float: right">
-                                <button onclick="addEdit()" type="button" class="btn btn-success">Add</button>
-                                <button onclick="onCancel()" type="button" class="btn btn-danger">Cancel</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-        </form>
-    </div>
-
+            </div>
+        <div class="col-md-10">
+            <div style="float: right">
+                <button type="button" onclick="addEdit()" class="btn btn-success">Add</button>
+                <button type="button" onclick="onCancel()" class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </form>
 </div>
 <script>
     $(document).ready(function () {
@@ -123,17 +115,14 @@
         $("#SanPham").click(function () {
             $("#temp").text($(this).text());
         });
-
     })
-
     function onCancel() {
         $('#input-name').val("");
     }
-
     function addEdit() {
         $.confirm({
             title : "Xác nhận!",
-            content : "Bạn có muốn sửa sản phẩm này ?",
+            content : "Bạn có muốn sửa thông tin này ?",
             buttons : {
                 YES : function() {
                     $.ajax({
@@ -141,24 +130,25 @@
                         data : {
                             id: $.trim($('#input-id').val()),
                             name : $.trim($('#input-name').val()),
-                            price : $.trim($('#input-price').val()),
-                            quantity : $.trim($('#input-quantity').val()),
-                            status : $('#sel-status option:selected').val(),
+                            content : $.trim($('#input-content').val()),
+                            startDate : $('#input-startDate').val(),
+                            endDate : $('#input-endDate').val()
+
                         },
                         dataType : 'json',
-                        url: "/suasanpham",
+                        url: "/editthongtin",
                         success : function (res) {
                             console.log(res);
                             if(res.success == "true") {
                                 $.alert({
                                     title:"Thông báo",
-                                    content:"Sửa sản phẩm thành công!"
+                                    content:"Sửa thông tin thành công!"
                                 })
                             }
                             else if (res.success == "false") {
                                 $.alert({
                                     title:"Thông báo",
-                                    content:"Sửa sản phẩm không thành công!" + res.error
+                                    content:"Sửa thông tin không thành công!" + res.error
                                 })
                             }
                         },
@@ -176,7 +166,6 @@
             }
         })
     }
-
 
 </script>
 

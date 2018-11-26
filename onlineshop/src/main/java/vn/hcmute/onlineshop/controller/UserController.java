@@ -127,7 +127,7 @@ public class UserController {
         account.setLstRole(Arrays.asList(role));
         role.getLstAccount().add(account);
         roleService.saveRole(role);
-;        return "redirect:/login";
+        return "redirect:/login";
     }
     @GetMapping("/care")
     public String care(){
