@@ -58,6 +58,7 @@ public class AdminRestController {
         return dataReturn;
 
     }
+
     @PostMapping("/quanlysanpham")
     public ResponseEntity<?> searchProduct(HttpServletRequest request){
         String keyword=request.getParameter("keyword");
@@ -102,6 +103,7 @@ public class AdminRestController {
         return dataReturn;
 
     }
+
     @PostMapping("/quanlythongtin")
     public ResponseEntity<?> searchEvent(HttpServletRequest request){
         String keyword=request.getParameter("keyword");
@@ -142,6 +144,7 @@ public class AdminRestController {
         dataReturn=eventService.editEvent(id,name,content,Date.valueOf(Optional.of(startDate).orElse("1/1/1991")),Date.valueOf(Optional.of(endDate).orElse("1/1/1991")));
         return dataReturn;
     }
+
     @PostMapping("/quanlydonhang")
     public ResponseEntity<?> searchBill(HttpServletRequest request){
         String keyword=request.getParameter("keyword");
@@ -179,6 +182,7 @@ public class AdminRestController {
         dataReturn=billService.editBill(id,total,Date.valueOf(Optional.of(payDate).orElse("1/1/1991")),recipients);
         return dataReturn;
     }
+
     @PostMapping("/getinstance")
     public DataReturn getInstance(HttpServletRequest request) {
         DataReturn dataReturn = new DataReturn();

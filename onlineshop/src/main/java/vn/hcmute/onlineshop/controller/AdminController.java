@@ -38,6 +38,24 @@ public class AdminController {
         model.addAttribute("bills",bills);
         return "quanlydonhang";
         }
+    @GetMapping("editdonhang")
+    public String eidtdonhang(@RequestParam("id") long id, Model model){
+        Bill bill=new Bill();
+        try {
+            bill=billService.findBillById(id);
+        }catch (NotFoundException ex){
+            model.addAttribute("error",ex.getMessage());
+        }
+        model.addAttribute("bill",bill);
+        return "editdonhang";
+    }
+    @GetMapping("/adddonhang")
+    public String adddonhang(Model model){
+        Bill bill=new Bill();
+        model.addAttribute("bill",bill);
+        return "adddonhang";
+    }
+
      @GetMapping("/quanlythongtin")
     public String quanlythongtin(Model model){
         List<Event> events = new ArrayList<>();
@@ -46,6 +64,26 @@ public class AdminController {
         model.addAttribute("events", events);
         return "quanlythongtin";
      }
+    @GetMapping("/editthongtin")
+    public  String editthongtin(@RequestParam("id") long id, Model model){
+        Event event=new Event();
+        try {
+
+            event=eventService.findEventById(id);
+
+        }catch (NotFoundException ex){
+            model.addAttribute("error", ex.getMessage());
+        }
+        model.addAttribute("event",event);
+        return "editthongtin";
+    }
+    @GetMapping("/addthongtin")
+    public String addthongtin(Model model){
+        Event event=new Event();
+        model.addAttribute("event",event);
+        return "addthongtin";
+    }
+
     @GetMapping("/quanlytaikhoan")
     public String quanlytaikhoan(Model model){
         List<Account> accounts = new ArrayList<>();
@@ -54,6 +92,7 @@ public class AdminController {
         model.addAttribute("accounts",accounts);
         return "quanlytaikhoan";
     }
+
     @GetMapping("/quanlysanpham")
     public String quanlysanpham(Model model){
         List<Product> products=new ArrayList<>();
@@ -61,10 +100,6 @@ public class AdminController {
         products=productService.getAllProducts(keyword);
         model.addAttribute("products", products);
         return "quanlysanpham";
-    }
-    @GetMapping("/admin")
-    public String admin(){
-        return "admin";
     }
     @GetMapping("/addsanpham")
     public String addsanpham(Model model){
@@ -87,42 +122,12 @@ public class AdminController {
         model.addAttribute("product", product);
         return "editproduct";
     }
-    @GetMapping("editdonhang")
-    public String eidtdonhang(@RequestParam("id") long id, Model model){
-        Bill bill=new Bill();
-        try {
-            bill=billService.findBillById(id);
-        }catch (NotFoundException ex){
-            model.addAttribute("error",ex.getMessage());
-        }
-        model.addAttribute("bill",bill);
-        return "editdonhang";
-    }
-    @GetMapping("/adddonhang")
-    public String adddonhang(Model model){
-        Bill bill=new Bill();
-        model.addAttribute("bill",bill);
-        return "adddonhang";
-    }
-    @GetMapping("/editthongtin")
-    public  String editthongtin(@RequestParam("id") long id, Model model){
-        Event event=new Event();
-        try {
 
-            event=eventService.findEventById(id);
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin";
+    }
 
-        }catch (NotFoundException ex){
-            model.addAttribute("error", ex.getMessage());
-        }
-        model.addAttribute("event",event);
-        return "editthongtin";
-    }
-    @GetMapping("/addthongtin")
-    public String addthongtin(Model model){
-        Event event=new Event();
-        model.addAttribute("event",event);
-        return "addthongtin";
-    }
 
     }
 

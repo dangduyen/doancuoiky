@@ -29,7 +29,6 @@ import java.util.List;
                        procedureName = "Sp_EditBill",
                        resultClasses = Bill.class
                )
-
        })
 
 public class Bill {
@@ -50,15 +49,6 @@ public class Bill {
     private List<BillDetail> lstBillDetail;
 
     public Bill() {
-    }
-
-    public Bill(double total, Date payDate, String recipients) {
-        this.total = total;
-        this.payDate = payDate;
-        this.recipients = recipients;
-//        this.cart = cart;
-//        this.customer = customer;
-//        this.lstBillDetail = lstBillDetail;
     }
 
     public Bill(double total, Date payDate, String recipients, Cart cart, Customer customer, List<BillDetail> lstBillDetail) {

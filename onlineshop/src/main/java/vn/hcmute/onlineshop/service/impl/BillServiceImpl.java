@@ -97,7 +97,6 @@ public class BillServiceImpl implements BillService {
        query.setParameter(2,payDate);
        query.registerStoredProcedureParameter(3,String.class,ParameterMode.IN);
        query.setParameter(3,recipients);
-
         DataReturn dataReturn = new DataReturn();
         try {
             query.execute();
