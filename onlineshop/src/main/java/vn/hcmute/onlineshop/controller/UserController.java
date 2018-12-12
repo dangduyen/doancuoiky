@@ -70,7 +70,6 @@ public class UserController {
         String password=account.getPassword();
         try{
             AccountDto accountDto = accountService.findAccountByUsernameAndPassword(username,password);
-            System.out.println("accountDto "+ accountDto.getRoles().get(0).getName());
             List<RoleDto> roleAdminDtos =  accountDto.getRoles().stream()
                     .filter(roleDto -> roleDto.getName().equals("ROLE_ADMIN"))
                     .collect(Collectors.toList());
@@ -124,9 +123,9 @@ public class UserController {
         customerService.save(customer);
 
         Role role = roleService.findByName("ROLE_USER");
-        account.setLstRole(Arrays.asList(role));
-        role.getLstAccount().add(account);
-        roleService.saveRole(role);
+        account.setLstRole(Arrays.asList(role)); //gán list role của account = list có 1 phần tử là ROLE_USER
+        role.getLstAccount().add(account); //lấy danh sách account của ROLE và add thêm account mới
+        roleService.saveRole(role); //lưu quyền vào bảng quyền
         return "redirect:/login";
     }
     @GetMapping("/care")
@@ -143,6 +142,8 @@ public class UserController {
 //        }
         return "product";
     }
+    @GetMapping("/event")
+    public String event() {return "event";}
     @GetMapping("/chitietao")
     public String chitietao(){
         return "chitietao";

@@ -185,11 +185,11 @@ public class AdminRestController {
 
     @PostMapping("/getinstance")
     public DataReturn getInstance(HttpServletRequest request) {
-        DataReturn dataReturn = new DataReturn();
-        MapDataSourceLookup mapDataSourceLookup = new MapDataSourceLookup();
-        Map<String, DataSource> dataSourceMap = new HashMap<>();
+        DataReturn dataReturn = new DataReturn(); // tao doi tuong datareturn
+        MapDataSourceLookup mapDataSourceLookup = new MapDataSourceLookup(); // tao de chua datasource khi tim kiem
+        Map<String, DataSource> dataSourceMap = new HashMap<>(); //tao list
         try {
-            dataSourceMap = mapDataSourceLookup.getDataSources();
+            dataSourceMap = mapDataSourceLookup.getDataSources(); //tim kiem datasource xung quanh, lấy ra
             System.out.println("try : " + dataSourceMap);
             dataReturn.setSuccess("true");
         } catch (DataSourceLookupFailureException ex) {
