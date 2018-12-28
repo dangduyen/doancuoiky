@@ -13,7 +13,250 @@
     <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/bootstrap/js/parallax.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .topnav .icon {
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child) {display: none;}
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+            .btn-giohang {
+                display: none;
+            }
+            .text {
+                display :none;
+            }
+            .navbar-nav{
+                display: none;
+            }
+        }
+
+
+        @media screen and (max-width: 600px) {
+            .topnav.responsive {position: relative;}
+            .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+    </style>
 </head>
+<!--<body>-->
+<!--<div class="body parallax-window" data-parallax="scroll" data-image-src="image/hinh.png">-->
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-shop-info">-->
+                <!--<ul class="list-unstyled list-inline">-->
+                    <!--<li><i class="fa fa-phone"></i><span>+039 438 1694</span></li>-->
+                    <!--<li><i class="fa fa-envelope-o"></i><span> thiduyen.dang.98@gmail.com</span></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!--<div class="col-md-6 col-lg-6 col-xs-12 col-sm-12 additional-nav">-->
+                <!--<ul class="list-unstyled list-inline pull-right">-->
+                    <!--<li><a href="/login"style="color:orangered">Đăng nhập</a></li>-->
+                    <!--<li><a href="/register"style="color:orangered">Đăng ký</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div id="header">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">-->
+                <!--<div class="text">-->
+                    <!--<input type="search" placeholder="Nhập sản phẩm bạn muốn tìm" style="margin-top: 10px;width: 250px;height: 30px; border: 2px solid #A9A9A9;border-radius: 12px;">-->
+                    <!--<button class="btn btn-danger" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">-->
+                <!--<div class="logo">-->
+                    <!--<img src="image/logoabc.png" width="120" height="100" style="margin-left: 140px">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">-->
+                <!--<a href="/cart">-->
+                    <!--<button class="btn btn-success btn-giohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</button>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<nav class="navbar navbar-inverse" >-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">-->
+                    <!--<div class="navbar-header">-->
+                        <!--<a class="navbar-brand" href="/">Beauty 2D</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-md-10 col-lg-10 col-sm-12 col-xs-12" >-->
+                    <!--<ul class="nav navbar-nav" style="font-size: 18px; ">-->
+                        <!--<li><a href="/">Trang chủ</a></li>-->
+                        <!--<li><a href="/product">Sản phẩm</a></li>-->
+                        <!--<li><a href="/event">Sự kiện</a></li>-->
+                        <!--<li><a href="/care">Chăm sóc khách hàng</a></li>-->
+                        <!--<li><a href="/contact">Liên hệ</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</nav>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12"></div>-->
+        <!--<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">-->
+            <!--<form style="background-color:rgb(247, 251, 255) ;padding:30px 20px;opacity: 0.8;" th:action="@{/login}" th:object="${account}" method="POST">-->
+                <!--<div style="text-align: center">-->
+                    <!--<h3 style="color:burlywood">Chào mừng đến với Beauty Shop.</h3>-->
+                <!--</div>-->
+                <!--<div style="text-align: center">-->
+                    <!--<h2>Login to your account</h2>-->
+                <!--</div>-->
+                <!--<hr>-->
+                <!--<div th:if="${loginError}" th:utext="${loginError}">-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-md-1"></div>-->
+                        <!--<div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">-->
+                            <!--<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Username: </label></div>-->
+                            <!--<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input name="username" type="text" class="form-control" th:field="*{username}" required=true></div>-->
+                            <!--<br> <br> <br>-->
+                            <!--<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Password: </label></div>-->
+                            <!--<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input name="password" type="password" class="form-control" th:field="*{password}" required=true></div>-->
+                            <!--<br> <br>-->
+                            <!--<div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"></div>-->
+                            <!--<div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">-->
+                                <!--<label  class="control-label"><input type="checkbox">  Remember me</label>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                        <!--<div class="col-md-1"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<br> <br>-->
+                <!--<div style="text-align: center">-->
+                    <!--<button class="btn btn-success dangnhap" type="submit">Đăng nhập</button>-->
+                <!--</div>-->
+                <!--<br>-->
+                <!--<div style="text-align: center">-->
+                    <!--<h5>Thành viên mới? <a href="/register">Đăng ký tại đây !!</a> </h5>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+        <!--<div class="col-md-3"></div>-->
+    <!--</div>-->
+    <!--<br> <hr>-->
+    <!--&lt;!&ndash;footer&ndash;&gt;-->
+    <!--<div id="footer">-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-7 col-lg-7 col-xs-12 col-sm-12">-->
+                <!--<p style="color: white">CÔNG TY TNHH BEAUTY</p>-->
+                <!--<p style="color: white">Email: thiduyen.dang.98@gmail.com</p>-->
+                <!--<p style="color: white">Hotline: 01684348350</p>-->
+                <!--<p style="color: white">Copyright © 2013, Beauty Shop</p>-->
+                <!--<p>Phát triển bởi Đặng Thị Duyên - Phan Thị Thùy Dương</p>-->
+            <!--</div>-->
+            <!--<div class="col-md-5 col-lg-5 col-xs-12 col-sm-12">-->
+                <!--<div>-->
+                        <!--<span style="border-bottom: 1px solid gray;margin-top:-->
+                                <!--10px;font-size: 25px;color:black;margin-left: 20px;">Kết nối với chúng tôi</span>-->
+                <!--</div>-->
+                <!--<br>-->
+                <!--<ul class="ketnoi ">-->
+                    <!--<li>-->
+                        <!--<a href="https://www.facebook.com/profile.php?id=100007916340603"><img class="icon" src="image/logo/facebook.png" style="width: 10%;"></a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="https://plus.google.com/discover"><img class="icon" src="image/logo/google-plus.png" alt=""style="width: 10%;"></a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="https://www.instagram.com/"><img class="icon" src="image/logo/instagram.png" alt=""style="width: 10%;"></a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="https://www.linkedin.com/"><img class="icon" src="image/logo/linkedin.png" alt=""style="width: 10%;"></a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="https://twitter.com/?lang=vi"><img class="icon" src="image/logo/twitter.png" alt=""style="width: 10%;"></a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<script>-->
+    <!--// khai bao su dung Jquery-->
+    <!--$(document).ready(function() {-->
+        <!--// Su kien scoll cua window-->
+
+        <!--$(window).scroll(function() {-->
+            <!--// neu tao do scroll hien tai >50px-->
+            <!--if ($(window).scrollTop() >= 50) {-->
+                <!--// chinh css margin top = 0-->
+                <!--$('nav.navbar').css("margin-top", "0px");-->
+                <!--// add them class cau hinh fixed thanh menu-->
+                <!--$('nav.navbar').addClass("navbar-fixed-top");-->
+            <!--} else {-->
+                <!--$('nav.navbar').css("margin-top", "5px");-->
+                <!--$('nav.navbar').removeClass("navbar-fixed-top");-->
+            <!--}-->
+        <!--})-->
+    <!--})-->
+<!--</script>-->
+<!--<script>-->
+    <!--(function(s, u, b, i, z){-->
+        <!--u[i]=u[i]||function(){-->
+            <!--u[i].t=+new Date();-->
+            <!--(u[i].q=u[i].q||[]).push(arguments);-->
+        <!--};-->
+        <!--z=s.createElement('script');-->
+        <!--var zz=s.getElementsByTagName('script')[0];-->
+        <!--z.async=1; z.src=b; z.id='subiz-script';-->
+        <!--zz.parentNode.insertBefore(z,zz);-->
+    <!--})(document, window, 'https://widgetv4.subiz.com/static/js/app.js', 'subiz');-->
+    <!--subiz('setAccount', 'acqewmptbqzepqdsalsd');-->
+<!--</script>-->
+<!--</body>-->
 <body>
 <div class="body parallax-window" data-parallax="scroll" data-image-src="image/hinh.png">
     <div class="container">
@@ -34,44 +277,35 @@
     </div>
     <div id="header">
         <div class="row">
-            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
+            <div class="col-md-4 col-lg-4 col-sm-12" style="text-align: center;">
                 <div class="text">
                     <input type="search" placeholder="Nhập sản phẩm bạn muốn tìm" style="margin-top: 10px;width: 250px;height: 30px; border: 2px solid #A9A9A9;border-radius: 12px;">
                     <button class="btn btn-danger" style="font-size: 15px"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <div class="col-md-4 col-lg-4 col-sm-12">
                 <div class="logo">
                     <img src="image/logoabc.png" width="120" height="100" style="margin-left: 140px">
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" style="text-align: center;">
-                <a href="/cart">
-                    <button class="btn btn-success btn-giohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</button>
-                </a>
+            <div class="col-md-4 col-lg-4 col-sm-12" style="text-align: center;">
+                <button class="btn btn-success btn-giohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ hàng</button>
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-inverse" >
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/">Beauty 2D</a>
-                    </div>
-                </div>
-                <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12" >
-                    <ul class="nav navbar-nav" style="font-size: 18px; ">
-                        <li><a href="/">Trang chủ</a></li>
-                        <li><a href="/product">Sản phẩm</a></li>
-                        <li><a href="/event">Sự kiện</a></li>
-                        <li><a href="/care">Chăm sóc khách hàng</a></li>
-                        <li><a href="/contact">Liên hệ</a></li>
-                    </ul>
-                </div>
-            </div>
+    <div>
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" >Beauty 2D                          </a>
+            <a href="#index.html">Trang chủ</a>
+            <a href="#contact">Sản phẩm</a>
+            <a href="#about">Sự kiện</a>
+            <a href="#about">Chăm sóc khách hàng</a>
+            <a href="#about">Liên hệ</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
         </div>
-    </nav>
+    </div>
     <div class="row">
         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12"></div>
         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
@@ -87,16 +321,16 @@
                 </div>
                 <div class="row">
                     <div class="form-group">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
-                            <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Username: </label></div>
-                            <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input name="username" type="text" class="form-control" th:field="*{username}" required=true></div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-10 col-lg-10 col-xs-10 col-sm-10">
+                            <div class="col-md-4 col-lg-4 col-xs-10 col-sm-10"><label  class="control-label">Username: </label></div>
+                            <div class="col-md-8 col-lg-8 col-xs-10 col-sm-10"><input name="username" type="text" class="form-control" th:field="*{username}" required=true></div>
                             <br> <br> <br>
-                            <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"><label  class="control-label">Password: </label></div>
-                            <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12"><input name="password" type="password" class="form-control" th:field="*{password}" required=true></div>
+                            <div class="col-md-4 col-lg-4 col-xs-10 col-sm-10"><label  class="control-label">Password: </label></div>
+                            <div class="col-md-8 col-lg-8 col-xs-10 col-sm-10"><input name="password" type="password" class="form-control" th:field="*{password}" required=true></div>
                             <br> <br>
-                            <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"></div>
-                            <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
+                            <div class="col-md-4 col-lg-4 col-xs-10 col-sm-10"></div>
+                            <div class="col-md-8 col-lg-8 col-xs-10 col-sm-10">
                                 <label  class="control-label"><input type="checkbox">  Remember me</label>
                             </div>
 
@@ -174,20 +408,16 @@
                 $('nav.navbar').removeClass("navbar-fixed-top");
             }
         })
+
     })
-</script>
-<script>
-    (function(s, u, b, i, z){
-        u[i]=u[i]||function(){
-            u[i].t=+new Date();
-            (u[i].q=u[i].q||[]).push(arguments);
-        };
-        z=s.createElement('script');
-        var zz=s.getElementsByTagName('script')[0];
-        z.async=1; z.src=b; z.id='subiz-script';
-        zz.parentNode.insertBefore(z,zz);
-    })(document, window, 'https://widgetv4.subiz.com/static/js/app.js', 'subiz');
-    subiz('setAccount', 'acqewmptbqzepqdsalsd');
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
 </script>
 </body>
 </html>

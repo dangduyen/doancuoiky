@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "customers")
-public class Customer {
+public class    Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
