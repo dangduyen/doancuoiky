@@ -149,7 +149,7 @@ public class AdminRestController {
     public ResponseEntity<?> searchBill(HttpServletRequest request){
         String keyword=request.getParameter("keyword");
         Optional.of(keyword).orElse("");
-        List<Bill> bills=billService.getAllBill(keyword);
+        List<Bill> bills=billService.getAllBill();
         List<BillDto> billDtos=bills.stream()
                 .map(bill -> new BillDto(bill.getId(),bill.getTotal(),bill.getPayDate(),bill.getRecipients()))
                 .collect(Collectors.toList());

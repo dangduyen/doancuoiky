@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface BillService {
-    List<Bill> getAllBill(String keyword);
+    List<Bill> getAllBill();
     DataReturn saveBill(Bill bill);
     DataReturn deleteBill (long id);
     DataReturn editBill(long id,Double total, Date payDate,String recipients);

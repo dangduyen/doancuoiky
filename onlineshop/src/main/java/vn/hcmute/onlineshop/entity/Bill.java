@@ -9,10 +9,7 @@ import java.util.List;
                @NamedStoredProcedureQuery(
                        name = "Sp_GetBills",
                        procedureName = "Sp_GetBills",
-                       resultClasses = Bill.class,
-                       parameters = {
-                               @StoredProcedureParameter(name = "keyword", mode = ParameterMode.IN, type = String.class)
-                       }
+                       resultClasses = Bill.class
                ),
                @NamedStoredProcedureQuery(
                        name = "Sp_AddBill",

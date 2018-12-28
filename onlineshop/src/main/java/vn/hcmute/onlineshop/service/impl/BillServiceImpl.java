@@ -36,10 +36,8 @@ public class BillServiceImpl implements BillService {
     @Autowired
     private BillRepository billRepository;
     @Override
-    public List<Bill> getAllBill(String keyword) {
+    public List<Bill> getAllBill() {
         StoredProcedureQuery query=em.createStoredProcedureQuery("Sp_GetBills", Bill.class);
-        query.registerStoredProcedureParameter(0,String.class, ParameterMode.IN);
-        query.setParameter(0,keyword);
         query.execute();
         List<Bill> bills=query.getResultList();
         return bills;
@@ -74,7 +72,7 @@ public class BillServiceImpl implements BillService {
         try{
             query.execute();
             dataReturn.setSuccess("true");
-            List<Bill> bills=getAllBill("");
+            List<Bill> bills=getAllBill();
             List<BillDto> billDtos=bills.stream()
                     .map(bill -> new BillDto(bill.getId(),bill.getTotal(),bill.getPayDate(),bill.getRecipients()))
                     .collect(Collectors.toList());

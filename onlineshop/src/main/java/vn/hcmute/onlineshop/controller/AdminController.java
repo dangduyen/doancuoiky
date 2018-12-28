@@ -33,8 +33,7 @@ public class AdminController {
     @GetMapping("/quanlydonhang")
         public String quanlydonhang(Model model){
         List<Bill> bills=new ArrayList<>();
-        String keyword="";
-        bills=billService.getAllBill(keyword);
+        bills=billService.getAllBill();
         model.addAttribute("bills",bills);
         return "quanlydonhang";
         }

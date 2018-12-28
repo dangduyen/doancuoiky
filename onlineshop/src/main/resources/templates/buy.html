@@ -142,7 +142,8 @@
                         </p>
                         <br>
                         <div style="text-align: center">
-                            <button id="btn-thanhtoan" style="font-size: 20px;background-color: orange;border:0"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Đặt hàng</button>
+                            <button id="btn-thanhtoan" style="font-size: 20px;background-color: orange;border:0">
+                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Đặt hàng</button>
                         </div>
                         <br> <br>
                     </div>
@@ -209,6 +210,19 @@
     $("#btn-thanhtoan").click(function() {
         alert("Bạn đã đặt hàng thành công !");
     });
+</script>
+<script>
+    (function(s, u, b, i, z){
+        u[i]=u[i]||function(){
+            u[i].t=+new Date();
+            (u[i].q=u[i].q||[]).push(arguments);
+        };
+        z=s.createElement('script');
+        var zz=s.getElementsByTagName('script')[0];
+        z.async=1; z.src=b; z.id='subiz-script';
+        zz.parentNode.insertBefore(z,zz);
+    })(document, window, 'https://widgetv4.subiz.com/static/js/app.js', 'subiz');
+    subiz('setAccount', 'acqewmptbqzepqdsalsd');
 </script>
 </body>
 </html>
